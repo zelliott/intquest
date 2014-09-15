@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('angularPassportApp')
-  .controller('NavbarCtrl', function ($scope, Auth, $location) {
+angular.module('intquestApp')
+  .controller('HeaderCtrl', function ($scope, Auth, $location) {
     $scope.menu = [{
-      "title": "Blogs",
-      "link": "blogs"
+      "title": "questions",
+      "link": "questions"
     }];
 
     $scope.authMenu = [{
-      "title": "Create New Blog",
-      "link": "blogs/create"
+      "title": "Create New question",
+      "link": "questions/create"
     }];
 
     $scope.logout = function() {

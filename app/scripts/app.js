@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp', [
+angular.module('intquestApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
@@ -11,24 +11,24 @@ angular.module('angularPassportApp', [
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'partials/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'partials/splash.html',
+        controller: 'SplashCtrl'
       })
-      .when('/blogs', {
-        templateUrl: 'partials/blogs/list.html',
-        controller: 'BlogsCtrl'
+      .when('/questions', {
+        templateUrl: 'partials/questions/list.html',
+        controller: 'questionsCtrl'
       })
-      .when('/blogs/create', {
-        templateUrl: 'partials/blogs/create.html',
-        controller: 'BlogsCtrl'
+      .when('/questions/create', {
+        templateUrl: 'partials/questions/add.html',
+        controller: 'questionsCtrl'
       })
-      .when('/blogs/:blogId/edit', {
-        templateUrl: 'partials/blogs/edit.html',
-        controller: 'BlogsCtrl'
+      .when('/questions/:questionId/edit', {
+        templateUrl: 'partials/questions/edit.html',
+        controller: 'questionsCtrl'
       })
-      .when('/blogs/:blogId', {
-        templateUrl: 'partials/blogs/view.html',
-        controller: 'BlogsCtrl'
+      .when('/questions/:questionId', {
+        templateUrl: 'partials/questions/view.html',
+        controller: 'questionsCtrl'
       })
       .when('/login', {
         templateUrl: 'partials/login.html',

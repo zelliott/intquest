@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('intquestApp')
   .directive('uniqueUsername', function ($http) {
     return {
       restrict: 'A',
@@ -26,4 +26,3 @@ angular.module('angularPassportApp')
       }
     };
   });
-

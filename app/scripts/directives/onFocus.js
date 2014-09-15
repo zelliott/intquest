@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('intquestApp')
   .constant('focusConfig', {
     focusClass: 'focused'
   })

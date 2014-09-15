@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('intquestApp')
   .controller('SignupCtrl', function ($scope, Auth, $location) {
     $scope.register = function(form) {
       Auth.createUser({
