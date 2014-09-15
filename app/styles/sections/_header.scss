@@ -4,11 +4,23 @@
   line-height: 64px;
 
   .pure-menu-heading {
+    color: $blue;
     font-weight: 600;
+
+    &:hover {
+      color: darken($blue, 10%);
+    }
   }
 
-  a:hover {
-    background: #fff !important;
-    color: #333;
+  ul {
+    a:hover {
+      background: #fff !important;
+      color: #333;
+    }
+  }
+
+  .pull-right {
+    height: 64px;
+    line-height: 64px;
   }
 }
