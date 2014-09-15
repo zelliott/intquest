@@ -11,8 +11,8 @@ angular.module('intquestApp', [
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'partials/splash.html',
-        controller: 'SplashCtrl'
+        templateUrl: 'partials/questions/list.html',
+        controller: 'QuestionsCtrl'
       })
       .when('/questions', {
         templateUrl: 'partials/questions/list.html',

@@ -3,12 +3,12 @@
 angular.module('intquestApp')
   .controller('HeaderCtrl', function ($scope, Auth, $location) {
     $scope.menu = [{
-      "title": "questions",
+      "title": "All questions",
       "link": "questions"
     }];
 
     $scope.authMenu = [{
-      "title": "Create New question",
+      "title": "Add question",
       "link": "questions/create"
     }];
 

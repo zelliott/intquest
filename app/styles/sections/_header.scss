@@ -1,0 +1,14 @@
+.header {
+  height: 64px;
+  font-size: 14px;
+  line-height: 64px;
+
+  .pure-menu-heading {
+    font-weight: 600;
+  }
+
+  a:hover {
+    background: #fff !important;
+    color: #333;
+  }
+}
