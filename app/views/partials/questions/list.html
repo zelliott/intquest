@@ -1,13 +1,12 @@
-
-<section ng-init="find()">
+<div ng-init="find()">
     <div ng-repeat="question in questions">
-        <h1><a ng-href="questions/{{question._id}}">{{question.title}}</a></h1>
-        <p>{{question.content}}</p>
+        <div>{{question.score}}</div>
         <div>
-            <span class="badge badge-success">Posted {{question.created | date:'medium'}}</span>
-            <div class="pull-right"><span class="badge badge-success">Posted by {{question.creator.username}}</span></div>
+          <h1><a ng-href="questions/{{question._id}}">{{question.title}}</a></h1>
+          <span>{{question.tags}}</span>
         </div>
-        <hr>
+        <div>
+            <span>{{question.creator.username}}</span>
+        </div>
     </div>
-    <h1 ng-hide="!questions || questions.length">No questions yet. <br> Why don't you <a href="/questions/create">Create One</a>?</h1>
-</section>
+</div>

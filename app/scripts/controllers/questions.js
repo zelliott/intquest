@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('intquestApp')
-  .controller('questionsCtrl', function ($scope, questions, $location, $routeParams, $rootScope) {
+  .controller('QuestionsCtrl', function ($scope, Questions, $location, $routeParams, $rootScope) {
 
     $scope.create = function() {
-      var question = new questions({
+      var question = new Questions({
         title: this.title,
-        content: this.content
+        content: this.content,
+        tags: this.tags
       });
       question.$save(function(response) {
         $location.path("questions/" + response._id);
@@ -14,6 +15,7 @@ angular.module('intquestApp')
 
       this.title = "";
       this.content = "";
+      this.tags = "";
     };
 
     $scope.remove = function(question) {
@@ -34,13 +36,13 @@ angular.module('intquestApp')
     };
 
     $scope.find = function() {
-      questions.query(function(questions) {
+      Questions.query(function(questions) {
         $scope.questions = questions;
       });
     };
 
     $scope.findOne = function() {
-      questions.get({
+      Questions.get({
         questionId: $routeParams.questionId
       }, function(question) {
         $scope.question = question;

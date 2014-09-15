@@ -16,19 +16,19 @@ angular.module('intquestApp', [
       })
       .when('/questions', {
         templateUrl: 'partials/questions/list.html',
-        controller: 'questionsCtrl'
+        controller: 'QuestionsCtrl'
       })
       .when('/questions/create', {
         templateUrl: 'partials/questions/add.html',
-        controller: 'questionsCtrl'
+        controller: 'QuestionsCtrl'
       })
       .when('/questions/:questionId/edit', {
         templateUrl: 'partials/questions/edit.html',
-        controller: 'questionsCtrl'
+        controller: 'QuestionsCtrl'
       })
       .when('/questions/:questionId', {
         templateUrl: 'partials/questions/view.html',
-        controller: 'questionsCtrl'
+        controller: 'QuestionsCtrl'
       })
       .when('/login', {
         templateUrl: 'partials/login.html',
