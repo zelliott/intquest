@@ -6,7 +6,8 @@ angular.module('intquestApp', [
   'ngSanitize',
   'ngRoute',
   'http-auth-interceptor',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'btford.markdown'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
