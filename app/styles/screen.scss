@@ -16,9 +16,13 @@
 @import "base/markdown";
 
 // Sections
+@import 'sections/auth';
 @import 'sections/header';
+@import 'sections/footer';
+@import 'sections/sidebar';
 @import 'sections/list';
 @import 'sections/add';
+@import 'sections/view';
 
 // Components
 @import 'components/inputs';

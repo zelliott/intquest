@@ -1,8 +1,7 @@
 .question-list {
-  border-right: 1px solid #ddd;
   height: 100vh;
   padding: 10px 0 0 0;
-  width: 60%;
+  width: 100%;
 
   .list-bar {
     color: #999;
@@ -12,9 +11,19 @@
     margin-bottom: 20px;
     padding: 0 20px;
 
+    span {
+      cursor: pointer;
+      margin-right: 20px;
+
+      &:hover {
+        color: #555;
+      }
+    }
+
     .search {
       background: #ddd;
       border: none;
+      border-bottom: 1px solid #ccc;
       @include border-radius(2px);
       height: 28px;
       margin-top: 7px;
@@ -23,6 +32,7 @@
   }
 
   .question {
+    display: block;
     height: 64px;
     margin: 0 0 20px 0;
     padding: 5px 20px;
@@ -59,15 +69,10 @@
 
     h1 {
       color: #555;
+      font-size: 14px;
+      font-weight: 600;
       line-height: 100%;
-      margin: 0 0 7px 0;
-
-      a {
-        font-size: 14
-
-        px;
-        font-weight: 600;
-      }
+      margin: 15px 0 7px 0;
     }
 
     span {

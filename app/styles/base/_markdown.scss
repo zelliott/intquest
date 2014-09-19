@@ -2,23 +2,23 @@
 
   h1 {
     color: #333;
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 600;
   }
 
   h2 {
     color: #555;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
   }
 
   h3 {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   h4 {
     color: #555;
-    font-size: 20px;
+    font-size: 16px;
   }
 
   blockquote {
@@ -27,12 +27,12 @@
     padding-left: 20px;
   }
 
-  pre,
   code {
-    background: #ddd;
+    background: #eee;
+    border-left: 1px solid $green;
     color: #333;
     font-family: Monaco, monospace;
-    padding: 5px;
+    padding: 10px;
   }
 
   code {

@@ -1,0 +1,66 @@
+.open-question {
+  background-color: rgba(255, 255, 255, 1);
+  @include box-shadow(-2px, 0, 10px, rgba(0, 0, 0, 0.1));
+  height: 100vh;
+  overflow-y: scroll;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 60%;
+  z-index: 1000;
+
+  .question-header {
+    background: #f7f7f7;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    width: calc(60% - 50px);
+
+
+    h2 {
+      color: #555;
+      display: inline-block;
+      font-size: 20px;
+      width: 80%;
+    }
+
+    div {
+
+      a {
+        color: $blue;
+
+        &:hover {
+          color: darken($blue, 10%);
+        }
+      }
+    }
+
+    .question-info {
+      color: #aaa;
+      margin-bottom: 10px;
+
+      span {
+        font-size: 12px;
+        margin-right: 20px;
+      }
+
+      a {
+        font-size: 12px;
+        float: right;
+        line-height: 19px;
+        margin-right: 20px;
+      }
+
+      i {
+        color: #aaa;
+        float: right;
+        line-height: 19px;
+      }
+    }
+  }
+
+  .markdown {
+    margin-top: 120px;
+    padding: 0 20px;
+  }
+}

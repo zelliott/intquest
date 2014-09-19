@@ -1,0 +1,70 @@
+.auth-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -100px;
+  width: 200px;
+  height: 400px;
+
+  label {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  input {
+    background: #ddd;
+    border: none !important;
+    border-bottom: 1px solid #ccc !important;
+    @include box-shadow(0, 0, 0, 0);
+    margin-bottom: 20px !important;
+    padding: 10px !important;
+    width: 200px;
+  }
+
+  button {
+    background: $blue;
+    border-bottom: 3px solid darken($blue, 10%);
+  }
+
+  button[disabled=disabled], button:disabled {
+    background: $blue;
+    border-bottom: 3px solid darken($blue, 10%);
+    @include opacity(0.5);
+  }
+
+  .auth-link {
+    color: $blue;
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+
+    &:hover {
+      color: darken($blue, 10%);
+    }
+  }
+}
+
+.back-button {
+  color: #aaa;
+  left: 20px;
+  position: absolute;
+  top: 20px;
+
+  &:hover {
+    color: #888;
+  }
+
+  i {
+    font-size: 13px;
+  }
+
+  span {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 30px;
+    margin-left: 10px;
+    text-transform: uppercase;
+  }
+}

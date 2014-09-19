@@ -28,7 +28,7 @@ angular.module('intquestApp', [
         controller: 'QuestionsCtrl'
       })
       .when('/questions/:questionId', {
-        templateUrl: 'partials/questions/view.html',
+        templateUrl: 'partials/questions/list.html',
         controller: 'QuestionsCtrl'
       })
       .when('/login', {
@@ -58,7 +58,7 @@ angular.module('intquestApp', [
 
     // On catching 401 errors, redirect to the login page.
     $rootScope.$on('event:auth-loginRequired', function() {
-      $location.path('/login');
+      $location.path('/');
       return false;
     });
   });

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('intquestApp')
-  .controller('QuestionsCtrl', function ($scope, Questions, $location, $routeParams, $rootScope) {
+  .controller('QuestionsCtrl', function ($scope, Questions, $location, $routeParams, $rootScope, $http) {
 
     $scope.create = function() {
       var question = new Questions({
@@ -41,11 +41,27 @@ angular.module('intquestApp')
       });
     };
 
+    // Boolean: Tests if question is open?
+    $scope.openQuestion = $location.$$path.slice(11) != '';
+
     $scope.findOne = function() {
-      Questions.get({
-        questionId: $routeParams.questionId
-      }, function(question) {
-        $scope.question = question;
-      });
+      if($scope.openQuestion) {
+        Questions.get({
+          questionId: $routeParams.questionId
+        }, function(question) {
+          $scope.question = question;
+        });
+      }
+    };
+
+    // Clicking score button
+    $scope.scoreClicked = function(score) {
+
+      // Test if user has already clicked
+
+      // Update DB
+
+      // Update view
+      return score = score + 1;
     };
   });

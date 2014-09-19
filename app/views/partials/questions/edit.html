@@ -1,3 +1,4 @@
+<div ng-include src="'partials/header.html'"></div>
 <div class="pure-g">
   <div class="pure-u-1-2 form-container">
     <form ng-init="findOne()" class="pure-form pure-form-stacked" ng-submit="update()">
@@ -5,10 +6,17 @@
             <label for="title">Title</label>
             <input type="text" ng-model="question.title" id="title" placeholder="Title" required="">
 
-            <label for="content">Content</label>
+            <label for="content">
+              Content
+              <a class="pull-right" href="">Markdown guide</a>
+              <span class="pull-right"><i class="fa fa-check fa-right"></i>Markdown supported</span>
+            </label>
             <textarea ng-model="question.content" id="content" placeholder="Content"></textarea>
 
-            <label for="tags">Tags</label>
+            <label for="tags">
+              Tags
+              <span class="pull-right">Separate tags with commas</span>
+            </label>
             <input type="text" ng-model="question.tags" id="tags" placeholder="Tags" required="">
 
             <button type="submit" class="pure-button pure-button-primary">Save</button>
@@ -16,7 +24,7 @@
     </form>
   </div>
   <div class="pure-u-1-2 preview-container">
-    <div>{{question.title}}</div>
     <div class="markdown" btf-markdown="question.content"></div>
   </div>
 </div>
+<div ng-include src="'partials/footer.html'"></div>
