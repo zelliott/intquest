@@ -1,0 +1,14 @@
+<div class="open-question" ng-init="findOne()" ng-show="openQuestion">
+    <div class="question-header">
+      <div class="question-info">
+        <span>{{question.created | date:'medium'}}</span>
+        <span>{{question.creator.username}}</span>
+        <i class="fa fa-times"></i>
+        <a ng-show="currentUser._id == question.creator._id" href="/questions/{{question._id}}/edit">edit</a>
+      </div>
+      <h2>
+        {{question.title}}
+      </h2>
+    </div>
+    <div class="markdown" btf-markdown="question.content"></div>
+</div>
