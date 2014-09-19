@@ -104,10 +104,10 @@ module.exports = function (grunt) {
           src: [
             'heroku/*',
             '!heroku/.git*',
-            '!heroku/Procfile'                 
+            '!heroku/Procfile'
           ]
         }]
-      }, 
+      },
       server: '.tmp'
     },
     jshint: {
@@ -291,7 +291,7 @@ module.exports = function (grunt) {
             'lib/**/*'
           ]
         }]
-      },  
+      },
       styles: {
         expand: true,
         cwd: '<%= yeoman.app %>/styles',
@@ -395,7 +395,7 @@ module.exports = function (grunt) {
   grunt.registerTask('heroku', [
     'build',
     'clean:heroku',
-    'copy:heroku'    
+    'copy:heroku'
   ]);
 
   grunt.registerTask('default', [
