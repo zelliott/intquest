@@ -6,7 +6,6 @@
 // 'test/spec/{,*/}*.js'
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
-// END
 
 module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
