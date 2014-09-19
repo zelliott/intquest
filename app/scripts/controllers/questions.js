@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('intquestApp')
-  .controller('QuestionsCtrl', function ($scope, Questions, $location, $routeParams, $rootScope, $http) {
+  .controller('QuestionsCtrl', function ($scope, Questions, Answers, $location, $routeParams, $rootScope, $http) {
 
     $scope.create = function() {
       var question = new Questions({
@@ -17,6 +17,18 @@ angular.module('intquestApp')
       this.content = "";
       this.tags = "";
     };
+
+    $scope.answer = function() {
+      var answer = new Answers({
+        content: this.content,
+        questionid: $routeParams.questionId
+      });
+      console.log(answer);
+      answer.$save(function(response) {
+        $location.path("questions/" + $routeParams.questionId);
+        $scope.findAnswers();
+      });
+    }
 
     $scope.remove = function(question) {
       question.$remove();
@@ -52,6 +64,14 @@ angular.module('intquestApp')
           $scope.question = question;
         });
       }
+
+      $scope.findAnswers();
+    };
+
+    $scope.findAnswers = function() {
+      Answers.getAnswers($routeParams.questionId, function(answers) {
+        $scope.answers = answers;
+      });
     };
 
     // Clicking score button
@@ -63,5 +83,12 @@ angular.module('intquestApp')
 
       // Update view
       return score = score + 1;
+    };
+
+    // Answers controllers
+    $scope.showAnswers = true;
+
+    $scope.toggleAnswers = function() {
+      $scope.showAnswers = !$scope.showAnswers;
     };
   });

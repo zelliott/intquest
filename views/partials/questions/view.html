@@ -10,5 +10,45 @@
         {{question.title}}
       </h2>
     </div>
+
     <div class="markdown" btf-markdown="question.content"></div>
+
+    <div class="answer">
+      <form class="pure-form pure-form-stacked" ng-submit="answer()">
+        <label for="answer">
+          Answer
+          <a class="pull-right" href="">Markdown guide</a>
+          <span class="pull-right"><i class="fa fa-check fa-right"></i>Markdown supported</span>
+        </label>
+        <textarea ng-model="content" id="answer"></textarea>
+        <button type="submit" class="pure-button pure-button-primary">Answer</button>
+      </form>
+    </div>
+
+    <div class="show-answers" ng-click="toggleAnswers()" ng-show="!showAnswers">
+      Show answers
+      <i class="fa fa-caret-down fa-left"></i>
+    </div>
+
+    <div class="answers" ng-show="showAnswers">
+      <div>
+        <div class="answer-info">
+          <span class="upvote">
+            <i class="fa fa-caret-up fa-right"></i>
+            0
+          </span>
+          <span>Date</span>
+          <span>Author</span>
+        </div>
+
+        <div class="markdown">
+          This is the actual answer.
+        </div>
+      </div>
+    </div>
+
+    <div class="hide-answers" ng-click="toggleAnswers()" ng-show="showAnswers">
+      Hide answers
+      <i class="fa fa-caret-up fa-left"></i>
+    </div>
 </div>
