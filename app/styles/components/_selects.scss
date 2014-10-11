@@ -1,0 +1,11 @@
+select {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    color: #333;
+  }
+}

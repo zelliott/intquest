@@ -4,15 +4,17 @@
     <span>
       <i class="fa fa-chevron-circle-left fa-right"></i> Filters
     </span>
-    <select>
-      <option>Recent</option>
-      <option>Popular</option>
-      <option>Hot</option>
-    </select>
+    <select ng-model="selectedOrder"
+            ng-options="order.option for order in orders"
+            ng-change="updateOrder()"></select>
+    <select ng-show="selectedOrder.option == 'Popular'"
+            ng-model="selectedTimeframe"
+            ng-options="timeframe.option for timeframe in timeframes"
+            ng-change="updateTimeframes()"></select>
     <input class="search pull-right" type="text" placeholder="Search"/>
   </div>
     <div class="question"
-       ng-repeat="question in questions">
+       ng-repeat="question in questions | orderBy:selectedOrder.attr:true">
         <div>
           <div ng-init="voted=false"
                class="score"

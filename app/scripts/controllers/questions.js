@@ -15,8 +15,6 @@ angular.module('intquestApp')
         $location.path("questions/" + response._id);
       });
 
-      console.log(this.concepts.split(","));
-
       this.title = "";
       this.content = "";
       this.companies = "";
@@ -91,6 +89,27 @@ angular.module('intquestApp')
         $scope.voted = true;
       }
     };
+
+    // Ordering questions
+
+    $scope.orders = [
+      { option: 'Recent', attr: 'created' },
+      { option: 'Popular', attr: 'score' },
+      { option: 'Hot', attr: ''}
+    ];
+
+    $scope.selectedOrder = $scope.orders[0];
+
+    $scope.timeframes = [
+      { option: 'Today', attr: '' },
+      { option: 'Week', attr: '' },
+      { option: 'Month', attr: ''},
+      { option: 'Year', attr: ''},
+      { option: 'All time', attr: ''}
+    ];
+
+    $scope.selectedTimeframe = $scope.timeframes[0];
+
 
     // Answers controllers
     $scope.showAnswers = true;
