@@ -36,9 +36,7 @@ exports.create = function(req, res) {
  */
 exports.update = function(req, res) {
   var answer = req.answer;
-  answer.title = req.body.title;
   answer.content = req.body.content;
-  answer.tags = req.body.tags;
   answer.save(function(err) {
     if (err) {
       res.json(500, err);
@@ -74,7 +72,13 @@ exports.show = function(req, res) {
  * List of answers
  */
 exports.all = function(req, res) {
-  Answer.find().sort('-created').populate('creator', 'username').exec(function(err, answers) {
+  var query = Answer.find().sort('-created').populate('creator', 'username');
+
+  if(req.query.questionid) {
+    query = query.where('questionid', req.query.questionid);
+  }
+
+  query.exec(function(err, answers) {
     if (err) {
       res.json(500, err);
     } else {

@@ -38,7 +38,9 @@ exports.update = function(req, res) {
   var question = req.question;
   question.title = req.body.title;
   question.content = req.body.content;
-  question.tags = req.body.tags;
+  question.companies = req.body.companies.slice(",");
+  question.concepts = req.body.concepts.slice(",");
+  question.level = req.body.level;
   question.save(function(err) {
     if (err) {
       res.json(500, err);

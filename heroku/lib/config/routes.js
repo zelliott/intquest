@@ -27,6 +27,15 @@ module.exports = function(app) {
   app.put('/api/questions/:questionId', auth.ensureAuthenticated, auth.question.hasAuthorization, questions.update);
   app.del('/api/questions/:questionId', auth.ensureAuthenticated, auth.question.hasAuthorization, questions.destroy);
 
+  // Answer Routes
+  var answers = require('../controllers/answers');
+  app.get('/api/answers', answers.all);
+  app.post('/api/answers', auth.ensureAuthenticated, answers.create);
+  app.get('/api/answers/:answersId', answers.show);
+  app.put('/api/answers/:answersId', auth.ensureAuthenticated, auth.question.hasAuthorization, answers.update);
+  app.del('/api/answers/:answersId', auth.ensureAuthenticated, auth.question.hasAuthorization, answers.destroy);
+
+
   //Setting up the questionId param
   app.param('questionId', questions.question);
 

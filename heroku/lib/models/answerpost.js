@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var AnswerPostSchema = new Schema({
-  questionslug: String,
+  questionid: String,
   content: {
     type: String,
     default: '',
