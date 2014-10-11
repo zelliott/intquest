@@ -21,7 +21,7 @@
     <div class="markdown" btf-markdown="question.content"></div>
 
     <div class="answer">
-      <form class="pure-form pure-form-stacked" ng-submit="answer()">
+      <form class="pure-form pure-form-stacked" ng-submit="answer()" ng-show="currentUser">
         <label for="answer">
           Answer
           <a class="pull-right" href="">Markdown guide</a>
@@ -30,6 +30,7 @@
         <textarea ng-model="content" id="answer"></textarea>
         <button type="submit" class="pure-button pure-button-primary">Answer</button>
       </form>
+      <div ng-hide="currentUser"><a href="/login">Login</a> or <a href="/signup">sign up</a> to answer</div>
     </div>
 
     <div class="show-answers" ng-click="toggleAnswers()" ng-show="!showAnswers">
@@ -46,6 +47,7 @@
           </span>
           <span>{{answer.created | date:'medium'}}</span>
           <span>{{answer.creator.username}}</span>
+          <a ng-show="currentUser._id == answer.creator._id" href="/questions/{{question._id}}/edit">edit</a>
         </div>
 
         <div class="markdown" btf-markdown="answer.content"></div>
