@@ -1,0 +1,39 @@
+<div ng-include src="'partials/header.html'"></div>
+<div class="question-list" ng-init="find()" ng-class="{'disabled-list': openQuestion}">
+  <div class="list-bar">
+    <span>
+      <i class="fa fa-chevron-circle-left fa-right"></i> Filters
+    </span>
+    <select>
+      <option>Recent</option>
+      <option>Popular</option>
+      <option>Hot</option>
+    </select>
+    <input class="search pull-right" type="text" placeholder="Search"/>
+  </div>
+    <div class="question"
+       ng-repeat="question in questions">
+        <div>
+          <div ng-init="voted=false"
+               class="score"
+               ng-class="voted ? 'voted' : ''"
+               ng-click="upvote(question)">
+            <i class="fa fa-caret-up"></i>
+            {{question.score}}
+          </div>
+        </div>
+        <div>
+          <h1><a ng-href="questions/{{question._id}}">{{question.title}}</a></h1>
+          <span>
+            <span ng-repeat="company in question.companies">{{company}}</span>
+          </span>
+        </div>
+        <div class="pull-right">
+            <div class="creator">{{question.creator.username}}</div>
+        </div>
+    </div>
+</div>
+
+<!-- Current question -->
+<div ng-include src="'partials/questions/view.html'"></div>
+<div ng-include src="'partials/footer.html'"></div>

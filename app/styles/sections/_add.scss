@@ -1,0 +1,61 @@
+.form-container {
+  padding-top: 20px;
+
+  form {
+    padding: 0 60px 0 0;
+
+    .pure-g > div {
+      margin: 0 20px;
+
+      label {
+        color: #999;
+        font-size: 14px;
+        margin-bottom: 5px;
+
+        span {
+          color: #ccc;
+          font-size: 12px;
+        }
+
+        a {
+          color: $blue;
+          font-size: 12px;
+          margin-left: 20px;
+
+          &:hover {
+            color: darken($blue, 10%);
+          }
+        }
+      }
+
+      input,
+      textarea {
+        background: #ddd;
+        border: none !important;
+        border-bottom: 1px solid #ccc !important;
+        @include box-shadow(0, 0, 0, 0);
+        margin-bottom: 20px !important;
+        padding: 10px !important;
+        width: 100%;
+      }
+
+      textarea {
+        height: 240px;
+      }
+
+      button {
+        background: $blue;
+        border-bottom: 3px solid darken($blue, 10%);
+      }
+    }
+  }
+}
+
+.preview-container {
+  padding-top: 20px;
+
+  .markdown {
+    margin-top: 40px;
+    padding-right: 20px;
+  }
+}

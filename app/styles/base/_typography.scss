@@ -1,0 +1,30 @@
+*,
+input,
+textarea {
+  font: 14px Avenir;
+}
+
+button {
+  font: 14px Avenir !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  a:focus,
+  a:visited,
+  a:hover {
+    color: inherit
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}

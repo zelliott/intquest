@@ -1,0 +1,170 @@
+.open-question {
+  background-color: rgba(255, 255, 255, 1);
+  @include box-shadow(-2px, 0, 10px, rgba(0, 0, 0, 0.1));
+  height: 100vh;
+  overflow-y: scroll;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 60%;
+  z-index: 1000;
+
+  .question-header {
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    top: 0;
+
+
+    h2 {
+      color: #555;
+      display: inline-block;
+      font-size: 20px;
+      width: 80%;
+    }
+
+    div {
+
+      a {
+        color: $blue;
+
+        &:hover {
+          color: darken($blue, 10%);
+        }
+      }
+    }
+
+    .question-info {
+      color: #aaa;
+      margin-bottom: 10px;
+
+      > span {
+        font-size: 12px;
+        margin-right: 20px;
+      }
+
+      a {
+        font-size: 12px;
+        float: right;
+        line-height: 19px;
+        margin-right: 20px;
+      }
+
+      i {
+        color: #aaa;
+        cursor: pointer;
+        float: right;
+        line-height: 19px;
+
+        &:hover {
+          color: #555;
+        }
+      }
+    }
+  }
+
+  > .markdown {
+    margin-top: 20px;
+    padding: 0 20px;
+  }
+
+  .answer {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    margin: 20px 0 0 0;
+
+    label {
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 5px;
+
+      span {
+        color: #ccc;
+        font-size: 12px;
+      }
+
+      a {
+        color: $blue;
+        font-size: 12px;
+        margin-left: 20px;
+
+        &:hover {
+          color: darken($blue, 10%);
+        }
+      }
+    }
+
+    input,
+    textarea {
+      background: #eee;
+      border: none !important;
+      border-bottom: 1px solid #ddd !important;
+      @include box-shadow(0, 0, 0, 0);
+      margin-bottom: 20px !important;
+      padding: 10px !important;
+      width: 100%;
+    }
+
+    textarea {
+      height: 64px;
+    }
+
+    button {
+      background: $blue;
+      border-bottom: 3px solid darken($blue, 10%);
+    }
+  }
+
+  .show-answers,
+  .hide-answers {
+    color: #999;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+
+    &:hover {
+      color: #555;
+    }
+  }
+
+  .answers {
+
+    > div {
+      border-bottom: 1px dotted #eee;
+      padding: 20px;
+
+      .answer-info {
+        color: #aaa;
+        margin-bottom: 20px;
+
+        span {
+          font-size: 12px;
+          margin-right: 20px;
+        }
+
+        .upvote {
+          color: $blue;
+          cursor: pointer;
+          font-weight: 600;
+
+          &:hover {
+            color: darken($blue, 10%);
+          }
+        }
+
+        a {
+          font-size: 12px;
+          float: right;
+          line-height: 19px;
+          margin-right: 20px;
+        }
+      }
+
+      .markdown {
+
+      }
+    }
+  }
+}

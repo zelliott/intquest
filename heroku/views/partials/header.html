@@ -1,0 +1,22 @@
+<div class="header pure-menu pure-menu-open pure-menu-horizontal" ng-controller="HeaderCtrl">
+    <a href="#" class="pure-menu-heading"><i class="fa fa-road fa-right"></i>Intquest</a>
+
+    <ul>
+        <li ng-repeat="item in menu" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
+            <a href="/{{item.link}}">{{item.title}}</a>
+        </li>
+        <li ng-repeat="item in authMenu" ng-show="currentUser" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
+            <a href="/{{item.link}}">{{item.title}}</a>
+        </li>
+    </ul>
+
+    <ul ng-hide="currentUser" class="pull-right">
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Sign up</a></li>
+    </ul>
+
+    <ul ng-show="currentUser" class="pull-right">
+        <li><a href="#">{{ currentUser.username }}</a></li>
+        <li><a ng-click="logout()">Logout</a></li>
+    </ul>
+</div>
