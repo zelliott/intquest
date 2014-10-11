@@ -67,12 +67,19 @@
       }
     }
 
+    .voted {
+      color: $blue !important;
+    }
+
     h1 {
-      color: #555;
-      font-size: 14px;
-      font-weight: 600;
       line-height: 100%;
-      margin: 15px 0 7px 0;
+      margin: 3px 0;
+
+      a {
+        color: #555;
+        font-size: 14px;
+        font-weight: 500;
+      }
     }
 
     span {

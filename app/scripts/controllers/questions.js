@@ -1,21 +1,28 @@
 'use strict';
 
 angular.module('intquestApp')
-  .controller('QuestionsCtrl', function ($scope, Questions, Answers, $location, $routeParams, $rootScope, $http) {
+  .controller('QuestionsCtrl', function ($scope, Questions, Answers, AnswersQueries, $location, $routeParams, $rootScope, $http) {
 
     $scope.create = function() {
       var question = new Questions({
         title: this.title,
         content: this.content,
-        tags: this.tags
+        companies: this.companies.split(","),
+        concepts: this.concepts.split(","),
+        level: this.level
       });
       question.$save(function(response) {
         $location.path("questions/" + response._id);
       });
 
+      console.log(this.concepts.split(","));
+
       this.title = "";
       this.content = "";
-      this.tags = "";
+      this.companies = "";
+      this.concepts = "";
+      this.level = "";
+
     };
 
     $scope.answer = function() {
@@ -23,7 +30,7 @@ angular.module('intquestApp')
         content: this.content,
         questionid: $routeParams.questionId
       });
-      console.log(answer);
+
       answer.$save(function(response) {
         $location.path("questions/" + $routeParams.questionId);
         $scope.findAnswers();
@@ -53,7 +60,7 @@ angular.module('intquestApp')
       });
     };
 
-    // Boolean: Tests if question is open?
+    // Boolean: Tests if question is open
     $scope.openQuestion = $location.$$path.slice(11) != '';
 
     $scope.findOne = function() {
@@ -69,20 +76,20 @@ angular.module('intquestApp')
     };
 
     $scope.findAnswers = function() {
-      Answers.getAnswers($routeParams.questionId, function(answers) {
+      AnswersQueries.getAnswers($routeParams.questionId, function(answers) {
         $scope.answers = answers;
       });
     };
 
     // Clicking score button
-    $scope.scoreClicked = function(score) {
-
-      // Test if user has already clicked
-
-      // Update DB
-
-      // Update view
-      return score = score + 1;
+    $scope.upvote = function(question) {
+      if($scope.voted) {
+        question.score--;
+        $scope.voted = false;
+      } else {
+        question.score++;
+        $scope.voted = true;
+      }
     };
 
     // Answers controllers

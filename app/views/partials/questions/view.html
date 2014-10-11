@@ -3,6 +3,13 @@
       <div class="question-info">
         <span>{{question.created | date:'medium'}}</span>
         <span>{{question.creator.username}}</span>
+        <span>
+          <span ng-repeat="company in question.companies">{{company}}</span>
+        </span>
+        <span>
+          <span ng-repeat="concept in question.concepts">{{concept}}</span>
+        </span>
+        <span>{{question.level}}</span>
         <i class="fa fa-times"></i>
         <a ng-show="currentUser._id == question.creator._id" href="/questions/{{question._id}}/edit">edit</a>
       </div>
