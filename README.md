@@ -1,2 +1,2 @@
-intquest app
+intquest
 ================
