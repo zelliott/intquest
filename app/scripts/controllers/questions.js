@@ -100,16 +100,45 @@ angular.module('intquestApp')
 
     $scope.selectedOrder = $scope.orders[0];
 
+    $scope.updateOrder = function() {
+
+      // If selected order = recent, change timeframe to today
+      if($scope.selectedOrder == $scope.orders[0]) {
+        $scope.selectedTimeframe = $scope.timeframes[0];
+      }
+    };
+
+    // Timeframe logic
     $scope.timeframes = [
-      { option: 'Today', attr: '' },
-      { option: 'Week', attr: '' },
-      { option: 'Month', attr: ''},
-      { option: 'Year', attr: ''},
-      { option: 'All time', attr: ''}
+      { option: 'Today', logic: 'day' },
+      { option: 'Week', logic: 'month' },
+      { option: 'Month', logic: 'month' },
+      { option: 'Year', logic: 'year' },
+      { option: 'All time', logic: '' }
     ];
 
     $scope.selectedTimeframe = $scope.timeframes[0];
 
+    $scope.isWithinTimeframe = function(question) {
+      if($scope.selectedTimeframe.logic != '') {
+        return question.created > moment().subtract(1, $scope.selectedTimeframe.logic).toISOString();
+      } else {
+        return true;
+      }
+    };
+
+    // Searching questions
+
+    $scope.searchParams = [
+      { option: 'Title', attr: 'title' },
+      { option: 'Company', attr: 'companies' },
+      { option: 'Concept', attr: 'concepts' },
+      { option: 'Author', attr: 'creator' }
+    ];
+
+    $scope.selectedSearchParam = $scope.searchParams[0];
+
+    $scope.search = {};
 
     // Answers controllers
     $scope.showAnswers = true;

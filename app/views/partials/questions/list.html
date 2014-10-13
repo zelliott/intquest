@@ -9,31 +9,45 @@
             ng-change="updateOrder()"></select>
     <select ng-show="selectedOrder.option == 'Popular'"
             ng-model="selectedTimeframe"
-            ng-options="timeframe.option for timeframe in timeframes"
-            ng-change="updateTimeframes()"></select>
-    <input class="search pull-right" type="text" placeholder="Search"/>
+            ng-options="timeframe.option for timeframe in timeframes"></select>
+    <select class="pull-right"
+            ng-model="selectedSearchParam"
+            ng-options="searchParam.option for searchParam in searchParams"></select>
+    <input class="search pull-right"
+           ng-model="search[selectedSearchParam.attr]"
+           type="text"
+           placeholder="Search"/>
   </div>
-    <div class="question"
-       ng-repeat="question in questions | orderBy:selectedOrder.attr:true">
-        <div>
-          <div ng-init="voted=false"
-               class="score"
-               ng-class="voted ? 'voted' : ''"
-               ng-click="upvote(question)">
-            <i class="fa fa-caret-up"></i>
-            {{question.score}}
-          </div>
+  <div class="question"
+     ng-repeat="question in filteredQuestions =
+                (questions |
+                orderBy:selectedOrder.attr:true |
+                filter:isWithinTimeframe |
+                filter:search)">
+      <div>
+        <div ng-init="voted=false"
+             class="score"
+             ng-class="voted ? 'voted' : ''"
+             ng-click="upvote(question)">
+          <i class="fa fa-caret-up"></i>
+          {{question.score}}
         </div>
-        <div>
-          <h1><a ng-href="questions/{{question._id}}">{{question.title}}</a></h1>
-          <span>
-            <span ng-repeat="company in question.companies">{{company}}</span>
-          </span>
-        </div>
-        <div class="pull-right">
-            <div class="creator">{{question.creator.username}}</div>
-        </div>
-    </div>
+      </div>
+      <div>
+        <h1><a ng-href="questions/{{question._id}}">{{question.title}}</a></h1>
+        <span>
+          <span ng-repeat="company in question.companies">{{company}}</span>
+        </span>
+      </div>
+      <div class="pull-right">
+          <div class="creator">{{question.creator.username}}</div>
+      </div>
+  </div>
+
+  <!-- Show if no questions appear -->
+  <div class="no-questions" ng-show="filteredQuestions.length == 0">
+    No questions
+  </div>
 </div>
 
 <!-- Current question -->
