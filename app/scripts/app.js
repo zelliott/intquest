@@ -31,6 +31,10 @@ angular.module('intquestApp', [
         templateUrl: 'partials/questions/list.html',
         controller: 'QuestionsCtrl'
       })
+      .when('/users/:username', {
+        templateUrl: 'partials/user.html',
+        controller: 'UsersCtrl'
+      })
       .when('/login', {
         templateUrl: 'partials/login.html',
         controller: 'LoginCtrl'

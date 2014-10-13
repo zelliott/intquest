@@ -39,8 +39,12 @@
         width: 100%;
       }
 
-      textarea {
+      textarea.content {
         height: 240px;
+      }
+
+      textarea.hint {
+        height: 100px;
       }
 
       button {

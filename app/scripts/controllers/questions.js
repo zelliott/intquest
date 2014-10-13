@@ -7,6 +7,7 @@ angular.module('intquestApp')
       var question = new Questions({
         title: this.title,
         content: this.content,
+        hint: this.hint,
         companies: this.companies.split(","),
         concepts: this.concepts.split(","),
         level: this.level
@@ -17,6 +18,7 @@ angular.module('intquestApp')
 
       this.title = "";
       this.content = "";
+      this.hint = "";
       this.companies = "";
       this.concepts = "";
       this.level = "";
@@ -93,6 +95,7 @@ angular.module('intquestApp')
     // Ordering questions
 
     $scope.orders = [
+      { option: 'All', attr: '' },
       { option: 'Recent', attr: 'created' },
       { option: 'Popular', attr: 'score' },
       { option: 'Hot', attr: ''}
@@ -104,6 +107,8 @@ angular.module('intquestApp')
 
       // If selected order = recent, change timeframe to today
       if($scope.selectedOrder == $scope.orders[0]) {
+        $scope.selectedTimeframe = $scope.timeframes[4];
+      } else if($scope.selectedOrder == $scope.orders[1]) {
         $scope.selectedTimeframe = $scope.timeframes[0];
       }
     };
@@ -117,7 +122,7 @@ angular.module('intquestApp')
       { option: 'All time', logic: '' }
     ];
 
-    $scope.selectedTimeframe = $scope.timeframes[0];
+    $scope.selectedTimeframe = $scope.timeframes[4];
 
     $scope.isWithinTimeframe = function(question) {
       if($scope.selectedTimeframe.logic != '') {
@@ -146,4 +151,10 @@ angular.module('intquestApp')
     $scope.toggleAnswers = function() {
       $scope.showAnswers = !$scope.showAnswers;
     };
+
+    $scope.showHint = false;
+
+    $scope.toggleHint = function() {
+      $scope.showHint = !$scope.showHint;
+    }
   });
