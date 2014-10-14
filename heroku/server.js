@@ -27,7 +27,7 @@ app.configure('development', function(){
   app.use(express.static(path.join(__dirname, '.tmp')));
   app.use(express.static(path.join(__dirname, 'app')));
   app.use(express.errorHandler());
-  app.set('views', __dirname + '/app/views');
+  app.set('views', __dirname + '/views');
 });
 
 app.configure('production', function(){

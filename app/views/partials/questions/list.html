@@ -19,11 +19,12 @@
            placeholder="Search"/>
   </div>
   <div class="question"
-     ng-repeat="question in filteredQuestions =
+       ng-repeat="question in filteredQuestions =
                 (questions |
                 orderBy:selectedOrder.attr:true |
                 filter:isWithinTimeframe |
-                filter:search)">
+                filter:search)"
+       ng-class="{'open-list-question': isOpen(question) && openQuestion}">
       <div>
         <div ng-init="voted=false"
              class="score"
@@ -34,7 +35,7 @@
         </div>
       </div>
       <div>
-        <h1><a ng-href="questions/{{question._id}}">{{question.title}}</a></h1>
+        <h1><a ng-href="questions/{{question._id}}" ng-click="toggleOpenQuestion()">{{question.title}}</a></h1>
         <span>
           <span ng-repeat="company in question.companies">{{company}}</span>
         </span>

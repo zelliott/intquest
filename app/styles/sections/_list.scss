@@ -101,6 +101,11 @@
     }
   }
 
+  .open-list-question {
+    background: #e5e5e5;
+    border-left: 4px solid $blue;
+  }
+
   .no-questions {
     color: #999;
     font-size: 16px;

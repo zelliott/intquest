@@ -38,8 +38,11 @@ exports.update = function(req, res) {
   var question = req.question;
   question.title = req.body.title;
   question.content = req.body.content;
-  question.companies = req.body.companies.slice(",");
-  question.concepts = req.body.concepts.slice(",");
+  question.hint = req.body.hint;
+
+  // Convert from string to array
+  question.companies = req.body.companies.toString().split(",");
+  question.concepts = req.body.concepts.toString().split(",");
   question.level = req.body.level;
   question.save(function(err) {
     if (err) {

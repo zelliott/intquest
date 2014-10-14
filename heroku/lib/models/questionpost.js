@@ -14,6 +14,11 @@ var QuestionPostSchema = new Schema({
     default: '',
     trim: true
   },
+  hint: {
+    type: String,
+    default: '',
+    trim: true
+  },
   slug: {
     type: String,
     lowercase: true,

@@ -35,7 +35,22 @@ angular.module('intquestApp')
         $location.path("questions/" + $routeParams.questionId);
         $scope.findAnswers();
       });
-    }
+    };
+
+    $scope.editedAnswers = {};
+
+    $scope.toggleEditAnswer = function(answer) {
+      $scope.editedAnswers[answer._id] = !$scope.editedAnswers[answer._id];
+      console.log($scope.editedAnswers[answer._id]);
+    };
+
+    $scope.updateAnswer = function(answer) {
+      answer.$update(function() {
+        $location.path('answers/' + answer._id);
+      });
+
+      $scope.toggleEditAnswer(answer);
+    };
 
     $scope.remove = function(question) {
       question.$remove();
@@ -62,6 +77,14 @@ angular.module('intquestApp')
 
     // Boolean: Tests if question is open
     $scope.openQuestion = $location.$$path.slice(11) != '';
+
+    $scope.toggleOpenQuestion = function() {
+      $scope.openQuestion = !$scope.openQuestion;
+    };
+
+    $scope.isOpen = function(question) {
+      return question._id == $location.$$path.slice(11);
+    };
 
     $scope.findOne = function() {
       if($scope.openQuestion) {
