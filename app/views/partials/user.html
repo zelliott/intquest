@@ -8,14 +8,18 @@
   </div>
 
   <div class="pure-u-1-2">
-    <div class="user-list">
-
+    <div class="user-list" ng-init="getQuestions()">
+      <div ng-repeat="question in questions">
+        {{question._id}}
+      </div>
     </div>
   </div>
 
   <div class="pure-u-1-2">
-    <div class="user-list">
-
+    <div class="user-list" ng-init="getAnswers()">
+      <div ng-repeat="answer in answers">
+        {{answer._id}}
+      </div>
     </div>
   </div>
 </div>

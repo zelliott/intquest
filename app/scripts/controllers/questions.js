@@ -41,7 +41,6 @@ angular.module('intquestApp')
 
     $scope.toggleEditAnswer = function(answer) {
       $scope.editedAnswers[answer._id] = !$scope.editedAnswers[answer._id];
-      console.log($scope.editedAnswers[answer._id]);
     };
 
     $scope.updateAnswer = function(answer) {

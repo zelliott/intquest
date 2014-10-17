@@ -51,14 +51,14 @@
           </span>
           <span>{{answer.created | date:'medium'}}</span>
           <span>{{answer.creator.username}}</span>
-          <a ng-show="currentUser._id == answer.creator._id && !editedAnswer[answer._id]" ng-click="toggleEditAnswer(answer)">edit</a>
-          <a ng-show="currentUser._id == answer.creator._id && editedAnswer[answer._id]" ng-click="updateAnswer()">save</a>
+          <a ng-show="currentUser._id == answer.creator._id && !editedAnswers[answer._id]" ng-click="toggleEditAnswer(answer)">edit</a>
+          <a ng-show="currentUser._id == answer.creator._id && editedAnswers[answer._id]" ng-click="updateAnswer()">save</a>
         </div>
 
-        <div ng-hide="editedAnswer[answer._id]" class="markdown" btf-markdown="answer.content"></div>
-        <textarea ng-show="editedAnswer[answer._id]">
-        {{answer.content}}
-        </textarea>
+        <div ng-hide="editedAnswers[answer._id]" class="markdown" btf-markdown="answer.content"></div>
+        <form class="pure-form pure-form-stacked" ng-show="editedAnswers[answer._id]">
+          <textarea value="answer.content">{{answer.content}}</textarea>
+        </form>
       </div>
     </div>
 

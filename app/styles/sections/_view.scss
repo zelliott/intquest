@@ -192,7 +192,6 @@
           font-size: 12px;
           float: right;
           line-height: 19px;
-          margin-right: 20px;
 
           &:hover {
             &:hover {
@@ -204,6 +203,16 @@
 
       .markdown {
 
+      }
+
+      textarea {
+        background: #eee;
+        border: none !important;
+        border-bottom: 1px solid #ddd !important;
+        @include box-shadow(0, 0, 0, 0);
+        height: 64px;
+        padding: 10px !important;
+        width: 100%;
       }
     }
   }
