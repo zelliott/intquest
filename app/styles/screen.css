@@ -44,6 +44,9 @@ h6 {
   margin: 0;
   padding: 0; }
 
+b {
+  font-weight: 600; }
+
 h2 {
   font-weight: 400; }
 
@@ -279,6 +282,8 @@ body {
       color: #999;
       font-size: 14px;
       line-height: 64px; }
+      .question-list .question .creator:hover {
+        color: #666; }
   .question-list .open-list-question {
     background: #e5e5e5;
     border-left-color: #0074D9; }
@@ -363,7 +368,13 @@ body {
       .open-question .question-header .question-info > span {
         font-size: 12px;
         margin-right: 20px; }
-      .open-question .question-header .question-info a {
+        .open-question .question-header .question-info > span a {
+          border-bottom: 1px solid #ccc;
+          color: #999;
+          padding-bottom: 1px; }
+          .open-question .question-header .question-info > span a:hover {
+            color: #666; }
+      .open-question .question-header .question-info > a {
         font-size: 12px;
         float: right;
         line-height: 19px;
@@ -447,24 +458,32 @@ body {
   .open-question .answers > div {
     border-bottom: 1px dotted #eee;
     padding: 20px; }
+    .open-question .answers > div:hover {
+      background-color: #fafafa; }
     .open-question .answers > div .answer-info {
       color: #aaa;
       margin-bottom: 20px; }
       .open-question .answers > div .answer-info span {
         font-size: 12px;
         margin-right: 20px; }
+        .open-question .answers > div .answer-info span a {
+          border-bottom: 1px solid #ccc;
+          color: #999;
+          padding-bottom: 1px; }
+          .open-question .answers > div .answer-info span a:hover {
+            color: #666; }
       .open-question .answers > div .answer-info .upvote {
         color: #0074D9;
         cursor: pointer;
         font-weight: 600; }
         .open-question .answers > div .answer-info .upvote:hover {
           color: #0059a6; }
-      .open-question .answers > div .answer-info a {
+      .open-question .answers > div .answer-info > a {
         color: #0074D9;
         font-size: 12px;
         float: right;
         line-height: 19px; }
-        .open-question .answers > div .answer-info a:hover:hover {
+        .open-question .answers > div .answer-info > a:hover:hover {
           color: #0059a6; }
     .open-question .answers > div textarea {
       background: #eee;
@@ -485,11 +504,22 @@ body {
   margin: 100px 20% 0 20%;
   width: 60%; }
   .user-list h2 {
-    color: #999; }
+    color: #555;
+    margin-bottom: 10px; }
     .user-list h2 b {
-      color: #666; }
-  .user-list > div {
-    background: #fff; }
+      color: #999; }
+  .user-list > div a {
+    background: #fff;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    padding: 20px; }
+    .user-list > div a:hover {
+      -webkit-box-shadow: 0 0 2px #ccc;
+      -moz-box-shadow: 0 0 2px #ccc;
+      box-shadow: 0 0 2px #ccc; }
 
 input:focus,
 textarea:focus,
