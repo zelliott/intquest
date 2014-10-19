@@ -3,22 +3,28 @@
 <div class="pure-g">
   <div class="pure-u-1-1">
     <div class="user-info">
-      <h2></h2>
+      <h1></h1>
     </div>
   </div>
 
-  <div class="pure-u-1-2">
-    <div class="user-list" ng-init="getQuestions()">
-      <div ng-repeat="question in questions">
-        {{question._id}}
+  <div class="pure-u-1-2" ng-init="getQuestions()">
+    <div class="user-list">
+      <h2><b>{{questions.length}}</b> Questions</h2>
+      <div>
+        <a ng-repeat="question in questions" ng-href="#/questions/{{question._id}}">
+          <span>{{question.title}}</span>
+        </a>
       </div>
     </div>
   </div>
 
-  <div class="pure-u-1-2">
-    <div class="user-list" ng-init="getAnswers()">
-      <div ng-repeat="answer in answers">
-        {{answer._id}}
+  <div class="pure-u-1-2" ng-init="getAnswers()">
+    <div class="user-list">
+      <h2><b>{{answers.length}}</b> Answers</h2>
+      <div>
+        <a ng-repeat="answer in answers" ng-href="#/questions/{{answer.questionid}}">
+          <span>{{answer.content}}</span>
+        </a>
       </div>
     </div>
   </div>

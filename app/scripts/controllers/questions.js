@@ -41,11 +41,14 @@ angular.module('intquestApp')
 
     $scope.toggleEditAnswer = function(answer) {
       $scope.editedAnswers[answer._id] = !$scope.editedAnswers[answer._id];
+      $scope.answerEdited = answer;
     };
 
-    $scope.updateAnswer = function(answer) {
+    $scope.updateAnswer = function() {
+      var answer = $scope.answerEdited;
+      console.log(answer);
       answer.$update(function() {
-        $location.path('answers/' + answer._id);
+        $location.path('questions/' + $routeParams.questionId);
       });
 
       $scope.toggleEditAnswer(answer);
@@ -78,6 +81,7 @@ angular.module('intquestApp')
     $scope.openQuestion = $location.$$path.slice(11) != '';
 
     $scope.toggleOpenQuestion = function() {
+
       $scope.openQuestion = !$scope.openQuestion;
     };
 

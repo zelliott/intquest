@@ -1,0 +1,30 @@
+.user-list {
+  margin: 100px 20% 0 20%;
+  width: 60%;
+
+  h2 {
+    color: #555;
+    margin-bottom: 10px;
+
+    b {
+      color: #999;
+    }
+  }
+
+  > div {
+
+    a {
+      background: #fff;
+      color: #555;
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 5px;
+      padding: 20px;
+
+      &:hover {
+        @include box-shadow(0, 0, 2px, #ccc);
+      }
+    }
+  }
+}

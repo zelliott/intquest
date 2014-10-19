@@ -15,20 +15,17 @@ angular.module('intquestApp', [
         templateUrl: 'partials/questions/list.html',
         controller: 'QuestionsCtrl'
       })
-      .when('/questions', {
-        templateUrl: 'partials/questions/list.html',
-        controller: 'QuestionsCtrl'
-      })
       .when('/questions/create', {
         templateUrl: 'partials/questions/add.html',
         controller: 'QuestionsCtrl'
       })
+      .when('/questions/:questionId?', {
+        templateUrl: 'partials/questions/list.html',
+        controller: 'QuestionsCtrl',
+        reloadOnSearch: false
+      })
       .when('/questions/:questionId/edit', {
         templateUrl: 'partials/questions/edit.html',
-        controller: 'QuestionsCtrl'
-      })
-      .when('/questions/:questionId', {
-        templateUrl: 'partials/questions/list.html',
         controller: 'QuestionsCtrl'
       })
       .when('/users/:username', {

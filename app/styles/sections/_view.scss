@@ -40,9 +40,19 @@
       > span {
         font-size: 12px;
         margin-right: 20px;
+
+        a {
+          border-bottom: 1px solid #ccc;
+          color: #999;
+          padding-bottom: 1px;
+
+          &:hover {
+            color: #666;
+          }
+        }
       }
 
-      a {
+      > a {
         font-size: 12px;
         float: right;
         line-height: 19px;
@@ -168,6 +178,10 @@
       border-bottom: 1px dotted #eee;
       padding: 20px;
 
+      &:hover {
+        background-color: #fafafa;
+      }
+
       .answer-info {
         color: #aaa;
         margin-bottom: 20px;
@@ -175,6 +189,16 @@
         span {
           font-size: 12px;
           margin-right: 20px;
+
+          a {
+            border-bottom: 1px solid #ccc;
+            color: #999;
+            padding-bottom: 1px;
+
+            &:hover {
+              color: #666;
+            }
+          }
         }
 
         .upvote {
@@ -187,7 +211,7 @@
           }
         }
 
-        a {
+        > a {
           color: $blue;
           font-size: 12px;
           float: right;
@@ -211,8 +235,14 @@
         border-bottom: 1px solid #ddd !important;
         @include box-shadow(0, 0, 0, 0);
         height: 64px;
+        margin-bottom: 20px;
         padding: 10px !important;
         width: 100%;
+      }
+
+      button {
+        background: $blue;
+        border-bottom: 3px solid darken($blue, 10%);
       }
     }
   }

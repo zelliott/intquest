@@ -35,13 +35,13 @@
         </div>
       </div>
       <div>
-        <h1><a ng-href="questions/{{question._id}}" ng-click="toggleOpenQuestion()">{{question.title}}</a></h1>
+        <h1><a ng-href="#/questions/{{question._id}}" ng-click="toggleOpenQuestion()">{{question.title}}</a></h1>
         <span>
           <span ng-repeat="company in question.companies">{{company}}</span>
         </span>
       </div>
       <div class="pull-right">
-          <div class="creator">{{question.creator.username}}</div>
+          <a class="creator" ng-href="/users/{{question.creator.username}}">{{question.creator.username}}</a>
       </div>
   </div>
 
