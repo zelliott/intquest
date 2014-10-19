@@ -25,35 +25,6 @@ angular.module('intquestApp')
 
     };
 
-    $scope.answer = function() {
-      var answer = new Answers({
-        content: this.content,
-        questionid: $routeParams.questionId
-      });
-
-      answer.$save(function(response) {
-        $location.path("questions/" + $routeParams.questionId);
-        $scope.findAnswers();
-      });
-    };
-
-    $scope.editedAnswers = {};
-
-    $scope.toggleEditAnswer = function(answer) {
-      $scope.editedAnswers[answer._id] = !$scope.editedAnswers[answer._id];
-      $scope.answerEdited = answer;
-    };
-
-    $scope.updateAnswer = function() {
-      var answer = $scope.answerEdited;
-      console.log(answer);
-      answer.$update(function() {
-        $location.path('questions/' + $routeParams.questionId);
-      });
-
-      $scope.toggleEditAnswer(answer);
-    };
-
     $scope.remove = function(question) {
       question.$remove();
 
@@ -77,44 +48,56 @@ angular.module('intquestApp')
       });
     };
 
-    // Boolean: Tests if question is open
-    $scope.openQuestion = $location.$$path.slice(11) != '';
+    $scope.questionUrl = $location.$$url.slice(12);
 
-    $scope.toggleOpenQuestion = function() {
+    $scope.openedQuestion = $scope.questionUrl;
+    $scope.questionOpen = ($scope.questionUrl == '') ? false : true;
 
-      $scope.openQuestion = !$scope.openQuestion;
-    };
+    $scope.toggleOpenQuestion = function(question) {
+      if(question._id == $scope.openedQuestion) {
+        $scope.openedQuestion = '';
+        $scope.questionOpen = false;
+      } else {
+        $scope.openedQuestion = question._id;
+        $scope.questionOpen = true;
+      }
 
-    $scope.isOpen = function(question) {
-      return question._id == $location.$$path.slice(11);
-    };
-
-    $scope.findOne = function() {
-      if($scope.openQuestion) {
-        Questions.get({
-          questionId: $routeParams.questionId
-        }, function(question) {
-          $scope.question = question;
-        });
+      if($scope.questionOpen) {
+        $scope.findOne($scope.openedQuestion);
       }
 
       $scope.findAnswers();
     };
 
+    $scope.findOne = function(questionId) {
+      if(questionId == null) {
+        questionId = $location.$$url.slice(17);
+      }
+      Questions.get({
+        questionId: questionId
+      }, function(question) {
+        $scope.question = question;
+      });
+    };
+
+    // $scope.isOpen = function(question) {
+    //   return question._id == $location.$$path.slice(11);
+    // };
+
     $scope.findAnswers = function() {
-      AnswersQueries.getAnswers($routeParams.questionId, function(answers) {
+      AnswersQueries.getAnswers($scope.openedQuestion, function(answers) {
         $scope.answers = answers;
       });
     };
 
     // Clicking score button
     $scope.upvote = function(question) {
-      if($scope.voted) {
+      if($scope.voted == false) {
         question.score--;
-        $scope.voted = false;
+        question.$save();
       } else {
         question.score++;
-        $scope.voted = true;
+        question.$save();
       }
     };
 
@@ -171,7 +154,36 @@ angular.module('intquestApp')
 
     $scope.search = {};
 
-    // Answers controllers
+
+    // Answers Ctrl
+
+    $scope.answer = function() {
+      var answer = new Answers({
+        content: this.content,
+        questionid: $scope.openedQuestion
+      });
+
+      answer.$save(function(response) {
+        $scope.findAnswers();
+      });
+    };
+
+    $scope.editedAnswers = {};
+
+    $scope.toggleEditAnswer = function(answer) {
+      $scope.editedAnswers[answer._id] = !$scope.editedAnswers[answer._id];
+      $scope.answerEdited = answer;
+    };
+
+    $scope.updateAnswer = function() {
+      var answer = $scope.answerEdited;
+      answer.$update(function() {
+        $scope.findAnswers();
+      });
+
+      $scope.toggleEditAnswer(answer);
+    };
+
     $scope.showAnswers = true;
 
     $scope.toggleAnswers = function() {

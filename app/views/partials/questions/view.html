@@ -1,4 +1,4 @@
-<div class="open-question" ng-init="findOne()" ng-show="openQuestion">
+<div class="open-question" ng-init="findOne(questionUrl)" ng-show="questionOpen" ng-controller="AnswersCtrl">
     <div class="question-header">
       <div class="question-info">
         <span>{{question.created | date:'medium'}}</span>
@@ -10,8 +10,8 @@
           <span ng-repeat="concept in question.concepts">{{concept}}</span>
         </span>
         <span>{{question.level}}</span>
-        <i class="fa fa-times" ng-click="toggleOpenQuestion()"></i>
-        <a ng-show="currentUser._id == question.creator._id" href="/questions/{{question._id}}/edit">edit</a>
+        <i class="fa fa-times" ng-click="toggleOpenQuestion(question)"></i>
+        <a ng-show="currentUser._id == question.creator._id" href="/questions/edit/?{{question._id}}">edit</a>
       </div>
       <h2>
         {{question.title}}
