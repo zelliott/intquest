@@ -10,7 +10,8 @@
           <span ng-repeat="concept in question.concepts">{{concept}}</span>
         </span>
         <span>{{question.level}}</span>
-        <i class="fa fa-times" ng-click="toggleOpenQuestion(question)"></i>
+        <i class="fa fa-toggle-right" ng-click="toggleOpenQuestion(question)"></i>
+        <!--<a ng-show="currentUser._id == question.creator._id" href="" ng-click="remove(question)">delete</a>-->
         <a ng-show="currentUser._id == question.creator._id" href="/questions/edit/?{{question._id}}">edit</a>
       </div>
       <h2>
@@ -52,7 +53,7 @@
           <span>{{answer.created | date:'medium'}}</span>
           <span><a ng-href="/users/{{answer.creator.username}}">{{answer.creator.username}}</a></span>
           <a ng-show="currentUser._id == answer.creator._id && !editedAnswers[answer._id]" ng-click="toggleEditAnswer(answer)">edit</a>
-          <a ng-hide="currentUser._id == answer.creator._id && !editedAnswers[answer._id]" ng-click="toggleEditAnswer(answer)">cancel</a>
+          <a ng-show="currentUser._id == answer.creator._id && editedAnswers[answer._id]" ng-click="toggleEditAnswer(answer)">cancel</a>
         </div>
 
         <div ng-hide="editedAnswers[answer._id]" class="markdown" btf-markdown="answer.content"></div>

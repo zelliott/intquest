@@ -12,8 +12,8 @@ angular.module('intquestApp')
         concepts: this.concepts.split(","),
         level: this.level
       });
-      question.$save(function(response) {
-        $location.path("questions/" + response._id);
+      question.$save(function() {
+        $location.path('questions/');
       });
 
       this.title = "";
@@ -25,7 +25,10 @@ angular.module('intquestApp')
 
     };
 
+    // Make this work slightly better
+    // Plus you have to remove answers too
     $scope.remove = function(question) {
+      $scope.toggleOpenQuestion(question);
       question.$remove();
 
       for (var i in $scope.questions) {
@@ -33,12 +36,13 @@ angular.module('intquestApp')
           $scope.questions.splice(i, 1);
         }
       }
+      $location.path('questions/');
     };
 
     $scope.update = function() {
       var question = $scope.question;
       question.$update(function() {
-        $location.path('questions/' + question._id);
+        $location.path('questions/');
       });
     };
 
