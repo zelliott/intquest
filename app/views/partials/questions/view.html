@@ -56,7 +56,7 @@
         </div>
 
         <div ng-hide="editedAnswers[answer._id]" class="markdown" btf-markdown="answer.content"></div>
-        <form class="pure-form pure-form-stacked" ng-show="editedAnswers[answer._id]" ng-submit="updateAnswer()">
+        <form class="pure-form pure-form-stacked" ng-show="editedAnswers[answer._id]" ng-submit="updateAnswer(); toggleEditAnswer(answer)">
             <textarea ng-model="answer.content" value="answer.content"></textarea>
             <button type="submit" class="pure-button pure-button-primary">Save</button>
         </form>

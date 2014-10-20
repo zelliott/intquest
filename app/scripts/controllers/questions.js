@@ -65,8 +65,6 @@ angular.module('intquestApp')
       if($scope.questionOpen) {
         $scope.findOne($scope.openedQuestion);
       }
-
-      $scope.findAnswers();
     };
 
     $scope.findOne = function(questionId) {
@@ -78,11 +76,8 @@ angular.module('intquestApp')
       }, function(question) {
         $scope.question = question;
       });
+      $scope.findAnswers();
     };
-
-    // $scope.isOpen = function(question) {
-    //   return question._id == $location.$$path.slice(11);
-    // };
 
     $scope.findAnswers = function() {
       AnswersQueries.getAnswers($scope.openedQuestion, function(answers) {
@@ -91,13 +86,14 @@ angular.module('intquestApp')
     };
 
     // Clicking score button
+
     $scope.upvote = function(question) {
       if($scope.voted == false) {
         question.score--;
-        question.$save();
+        console.log(question);
       } else {
         question.score++;
-        question.$save();
+        console.log(question);
       }
     };
 
@@ -176,12 +172,7 @@ angular.module('intquestApp')
     };
 
     $scope.updateAnswer = function() {
-      var answer = $scope.answerEdited;
-      answer.$update(function() {
-        $scope.findAnswers();
-      });
-
-      $scope.toggleEditAnswer(answer);
+      Answers.update($scope.answerEdited);
     };
 
     $scope.showAnswers = true;
