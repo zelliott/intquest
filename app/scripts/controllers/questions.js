@@ -158,7 +158,7 @@ angular.module('intquestApp')
 
     $scope.conceptsList = {
       Algorithms: true,
-      Data Structures: true,
+      Data: true,
       Math: true,
       Puzzles: true,
       Unix: true
