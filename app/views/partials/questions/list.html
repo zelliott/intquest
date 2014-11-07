@@ -27,18 +27,20 @@
                   filter:filterByCompanies)"
          ng-class="{'open-list-question': question._id == openedQuestion && questionOpen}">
         <div>
-          <div ng-init="voted=false"
+          <!-- <div ng-init="voted=false"
                class="score"
                ng-class="voted ? 'voted' : ''"
                ng-click="upvote(question)">
             <i class="fa fa-caret-up"></i>
             {{question.score}}
-          </div>
+          </div> -->
         </div>
         <div>
           <h1><a ng-href="#/questions/?{{question._id}}" ng-click="toggleOpenQuestion(question)">{{question.title}}</a></h1>
           <span>
             <span ng-repeat="company in question.companies">{{company}}</span>
+            <span class="sepline">-</span>
+            <span ng-repeat="concept in question.concepts">{{concept}}</span>
           </span>
         </div>
         <div class="pull-right">

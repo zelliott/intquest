@@ -46,10 +46,10 @@
     <div class="answers" ng-show="showAnswers">
       <div ng-repeat="answer in answers">
         <div class="answer-info">
-          <span class="upvote">
+          <!-- <span class="upvote">
             <i class="fa fa-caret-up fa-right"></i>
             0
-          </span>
+          </span> -->
           <span>{{answer.created | date:'medium'}}</span>
           <span><a ng-href="/users/{{answer.creator.username}}">{{answer.creator.username}}</a></span>
           <a ng-show="currentUser._id == answer.creator._id && !editedAnswers[answer._id]" ng-click="toggleEditAnswer(answer)">edit</a>

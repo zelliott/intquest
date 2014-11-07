@@ -156,24 +156,27 @@ angular.module('intquestApp')
 
     // Filtering by concept
 
-    $scope.concepts = {
+    $scope.conceptsList = {
+      Algorithms: true,
+      Data Structures: true,
       Math: true,
-      Puzzles: true
+      Puzzles: true,
+      Unix: true
     };
 
     $scope.conceptsAll = true;
     $scope.selectAllConcepts = function() {
       $scope.conceptsAll = !$scope.conceptsAll;
-      for(var concept in $scope.concepts) {
-         $scope.concepts[concept] = $scope.conceptsAll;
+      for(var concept in $scope.conceptsList) {
+         $scope.conceptsList[concept] = $scope.conceptsAll;
       }
     };
 
     $scope.filterByConcepts = function(question) {
 
       for(var i=0; i<question.concepts.length; i++) {
-        if($scope.concepts[question.concepts[i]]) {
-          return $scope.concepts[question.concepts[i]];
+        if($scope.conceptsList[question.concepts[i]]) {
+          return $scope.conceptsList[question.concepts[i]];
         } else {
           return false;
         }
@@ -182,24 +185,28 @@ angular.module('intquestApp')
 
     // Filtering by company
 
-    $scope.companies = {
+    $scope.companiesList = {
       Addepar: true,
+      Apple: true,
+      Google: true,
+      Facebook: true,
+      Microsoft: true,
       Palantir: true
     };
 
     $scope.companiesAll = true;
     $scope.selectAllCompanies = function() {
       $scope.companiesAll = !$scope.companiesAll;
-      for(var company in $scope.companies) {
-         $scope.companies[company] = $scope.companiesAll;
+      for(var company in $scope.companiesList) {
+         $scope.companiesList[company] = $scope.companiesAll;
       }
     };
 
 
     $scope.filterByCompanies = function(question) {
       for(var i=0; i<question.companies.length; i++) {
-        if($scope.companies[question.companies[i]]) {
-          return $scope.companies[question.companies[i]];
+        if($scope.companiesList[question.companies[i]]) {
+          return $scope.companiesList[question.companies[i]];
         } else {
           return false;
         }

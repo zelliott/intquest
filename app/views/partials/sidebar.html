@@ -12,9 +12,9 @@
         All
       </label>
     </div>
-    <div class="checkbox" ng-repeat="(concept,enabled) in concepts">
+    <div class="checkbox" ng-repeat="(concept,enabled) in conceptsList">
       <input type="checkbox"
-             ng-model="concepts[concept]"
+             ng-model="conceptsList[concept]"
              id="concept_{{concept}}"/>
       <label for="concept_{{concept}}">
         {{concept}}
@@ -34,9 +34,9 @@
         All
       </label>
     </div>
-    <div class="checkbox" ng-repeat="(company,enabled) in companies">
+    <div class="checkbox" ng-repeat="(company,enabled) in companiesList">
       <input type="checkbox"
-             ng-model="companies[company]"
+             ng-model="companiesList[company]"
              id="company_{{company}}"/>
       <label for="company_{{company}}">
         {{company}}
