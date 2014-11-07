@@ -154,6 +154,57 @@ angular.module('intquestApp')
 
     $scope.search = {};
 
+    // Filtering by concept
+
+    $scope.concepts = {
+      Math: true,
+      Puzzles: true
+    };
+
+    $scope.conceptsAll = true;
+    $scope.selectAllConcepts = function() {
+      $scope.conceptsAll = !$scope.conceptsAll;
+      for(var concept in $scope.concepts) {
+         $scope.concepts[concept] = $scope.conceptsAll;
+      }
+    };
+
+    $scope.filterByConcepts = function(question) {
+
+      for(var i=0; i<question.concepts.length; i++) {
+        if($scope.concepts[question.concepts[i]]) {
+          return $scope.concepts[question.concepts[i]];
+        } else {
+          return false;
+        }
+      }
+    };
+
+    // Filtering by company
+
+    $scope.companies = {
+      Addepar: true,
+      Palantir: true
+    };
+
+    $scope.companiesAll = true;
+    $scope.selectAllCompanies = function() {
+      $scope.companiesAll = !$scope.companiesAll;
+      for(var company in $scope.companies) {
+         $scope.companies[company] = $scope.companiesAll;
+      }
+    };
+
+
+    $scope.filterByCompanies = function(question) {
+      for(var i=0; i<question.companies.length; i++) {
+        if($scope.companies[question.companies[i]]) {
+          return $scope.companies[question.companies[i]];
+        } else {
+          return false;
+        }
+      }
+    };
 
     // Answers Ctrl
 

@@ -1,15 +1,28 @@
 .sidebar {
   color: #999;
-  background: #434854;
   height: 100vh;
-  left: -240px;
-  padding: 20px;
-  position: fixed;
+  float: left;
+  padding-top: 10px;
+  top: 64px;
   width: 200px;
 
   .sidebar-header {
-    font-size: 20px;
+    cursor: pointer;
+    font-size: 14px;
     font-weight: 300;
-    margin-bottom: 20px;
+    padding: 10px 20px;
+    width: 100%;
+
+    &:hover {
+      color: #555;
+    }
+  }
+
+  .checkbox-list {
+    padding: 10px 20px;
+
+    .checkbox {
+      display: block;
+    }
   }
 }

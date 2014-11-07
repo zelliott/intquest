@@ -1,4 +1,46 @@
 <div class="sidebar">
-  <div class="sidebar-header">Filters</div>
-  <div>Content</div>
+  <div class="sidebar-header">
+    Concepts
+    <i class="fa fa-angle-down pull-right"></i></div>
+  <div class="checkbox-list">
+    <div class="checkbox">
+      <input type="checkbox"
+             ng-model="conceptsAll"
+             ng-change="selectAllConcepts()"
+             id="concept_All"/>
+      <label for="concept_All">
+        All
+      </label>
+    </div>
+    <div class="checkbox" ng-repeat="(concept,enabled) in concepts">
+      <input type="checkbox"
+             ng-model="concepts[concept]"
+             id="concept_{{concept}}"/>
+      <label for="concept_{{concept}}">
+        {{concept}}
+      </label>
+    </div>
+  </div>
+  <div class="sidebar-header">
+    Companies
+    <i class="fa fa-angle-down pull-right"></i></div>
+  <div class="checkbox-list">
+    <div class="checkbox">
+      <input type="checkbox"
+             ng-model="companiesAll"
+             ng-change="selectAllCompanies()"
+             id="companies_All"/>
+      <label for="companies_All">
+        All
+      </label>
+    </div>
+    <div class="checkbox" ng-repeat="(company,enabled) in companies">
+      <input type="checkbox"
+             ng-model="companies[company]"
+             id="company_{{company}}"/>
+      <label for="company_{{company}}">
+        {{company}}
+      </label>
+    </div>
+  </div>
 </div>

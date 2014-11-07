@@ -1,0 +1,28 @@
+[type=checkbox] {
+    display: none;
+}
+
+[type=checkbox] + label {
+  cursor: pointer;
+  display: block;
+  padding: 5px 0;
+
+  &:hover {
+    color: #555;
+  }
+}
+
+[type=checkbox] + label:before {
+    content: "\f10c";
+    font-family: FontAwesome;
+    margin-right: 5px;
+}
+
+[type=checkbox]:checked + label:before {
+    content: "\f05d";
+    font-family: FontAwesome;
+}
+
+[type=checkbox]:checked + label {
+    color: #777;
+}

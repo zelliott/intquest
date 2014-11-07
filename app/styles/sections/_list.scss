@@ -1,121 +1,129 @@
-.question-list {
-  padding: 10px 0 0 0;
+.question-section {
+  background: #ddd;
   width: 100%;
 
-  .list-bar {
-    color: #999;
-    font-size: 14px;
-    height: 44px;
-    line-height: 44px;
-    margin-bottom: 20px;
-    padding: 0 20px;
+  .question-list {
+    background: #eee;
+    min-height: 100vh;
+    padding: 7px 0 0 0;
+    width: calc(100%-240px);
+    margin-left: 240px;
 
-    span {
-      cursor: pointer;
-      margin-right: 20px;
-
-      &:hover {
-        color: #555;
-      }
-    }
-
-    select {
-      margin-right: 20px;
-    }
-
-    select.pull-right {
-      margin: 11px 0 0 20px;
-    }
-
-    .search {
-      background: #ddd;
-      border: none;
-      border-bottom: 1px solid #ccc;
-      @include border-radius(2px);
-      height: 28px;
-      padding: 0 7px;
-      margin-top: 7px;
-    }
-  }
-
-  .question {
-    border-left: 5px solid transparent;
-    display: block;
-    height: 64px;
-    margin: 0 0 20px 0;
-    padding: 5px 20px;
-    width: calc(100% - 45px);
-
-    &:hover {
-      background: #e5e5e5;
-    }
-
-    > div {
-      float: left;
-      height: 64px;
-    }
-
-    .score {
-      background: #ddd;
-      border-bottom: 2px solid #ccc;
-      @include border-radius(2px);
-      cursor: pointer;
-      color: #555;
-      font-weight: 600;
-      font-size: 12px;
-      padding: 5px;
-      margin: 10px 30px 10px 0;
-      text-align: center;
-      width: 20px;
-
-      i {
-        font-size: 20px;
-        display: block;
-        height: 20px;
-      }
-    }
-
-    .voted {
-      color: $blue !important;
-    }
-
-    h1 {
-      line-height: 100%;
-      margin: 3px 0;
-
-      a {
-        color: #555;
-        font-size: 14px;
-        font-weight: 500;
-      }
-    }
-
-    span {
-      color: #999;
-      font-size: 12px;
-    }
-
-    .creator {
+    .list-bar {
       color: #999;
       font-size: 14px;
-      line-height: 64px;
+      height: 44px;
+      line-height: 44px;
+      padding: 0 20px;
 
-      &:hover {
-        color: #666;
+      span {
+        cursor: pointer;
+        margin-right: 20px;
+
+        &:hover {
+          color: #555;
+        }
+      }
+
+      select {
+        margin-right: 20px;
+      }
+
+      select.pull-right {
+        margin: 11px 0 0 20px;
+      }
+
+      .search {
+        background: #ddd;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        @include border-radius(2px);
+        height: 28px;
+        padding: 0 7px;
+        margin-top: 7px;
       }
     }
-  }
 
-  .open-list-question {
-    background: #e5e5e5;
-    border-left-color: $blue;
-  }
+    .question {
+      border-left: 5px solid transparent;
+      display: block;
+      height: 64px;
+      margin: 10px 0 0 0;
+      padding: 5px 20px;
+      width: calc(100% - 45px);
 
-  .no-questions {
-    color: #999;
-    font-size: 16px;
-    text-align: center;
-    width: 100%;
+      &:hover {
+        background: #e5e5e5;
+      }
 
+      > div {
+        float: left;
+        height: 64px;
+      }
+
+      .score {
+        background: #ddd;
+        border-bottom: 2px solid #ccc;
+        @include border-radius(2px);
+        cursor: pointer;
+        color: #555;
+        font-weight: 600;
+        font-size: 12px;
+        padding: 5px;
+        margin: 10px 30px 10px 0;
+        text-align: center;
+        width: 20px;
+
+        i {
+          font-size: 20px;
+          display: block;
+          height: 20px;
+        }
+      }
+
+      .voted {
+        color: $blue !important;
+      }
+
+      h1 {
+        line-height: 100%;
+        margin: 3px 0;
+
+        a {
+          color: #555;
+          font-size: 14px;
+          font-weight: 500;
+        }
+      }
+
+      span {
+        color: #999;
+        font-size: 12px;
+      }
+
+      .creator {
+        color: #999;
+        font-size: 14px;
+        line-height: 64px;
+
+        &:hover {
+          color: #666;
+        }
+      }
+    }
+
+    .open-list-question {
+      background: #e5e5e5;
+      border-left-color: $blue;
+    }
+
+    .no-questions {
+      color: #999;
+      font-size: 16px;
+      padding-bottom: 20px;
+      text-align: center;
+      width: 100%;
+
+    }
   }
 }
