@@ -290,7 +290,11 @@ body {
           font-weight: 500; }
       .question-section .question-list .question span {
         color: #999;
-        font-size: 12px; }
+        font-size: 12px;
+        margin: 0 5px 0 0; }
+      .question-section .question-list .question .sepline {
+        color: #ccc;
+        padding: 0 5px; }
       .question-section .question-list .question .creator {
         color: #999;
         font-size: 14px;
@@ -514,26 +518,67 @@ body {
       background: #0074D9;
       border-bottom: 3px solid #0059a6; }
 
-.user-list {
-  margin: 100px 20% 0 20%;
-  width: 60%; }
-  .user-list h2 {
+.user-profile .user-header {
+  background: #ddd;
+  padding: 20px 10%; }
+  .user-profile .user-header h1 {
     color: #555;
-    margin-bottom: 10px; }
-    .user-list h2 b {
-      color: #999; }
-  .user-list > div a {
-    background: #fff;
-    color: #555;
-    display: block;
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 5px;
-    padding: 20px; }
-    .user-list > div a:hover {
-      -webkit-box-shadow: 0 0 2px #ccc;
-      -moz-box-shadow: 0 0 2px #ccc;
-      box-shadow: 0 0 2px #ccc; }
+    font-size: 20px;
+    font-weight: 500; }
+  .user-profile .user-header .user-sections {
+    margin-top: 40px; }
+    .user-profile .user-header .user-sections span {
+      color: #999;
+      cursor: pointer;
+      font-size: 16px;
+      margin-right: 20px; }
+      .user-profile .user-header .user-sections span:hover {
+        color: #555; }
+    .user-profile .user-header .user-sections .current-section {
+      color: #555; }
+.user-profile .user-lists {
+  margin: 20px 10%; }
+  .user-profile .user-lists .user-questions {
+    margin-right: 1%; }
+  .user-profile .user-lists .user-answers {
+    margin-left: 1%; }
+  .user-profile .user-lists .user-questions,
+  .user-profile .user-lists .user-answers {
+    float: left;
+    width: 48%; }
+    .user-profile .user-lists .user-questions .list-header,
+    .user-profile .user-lists .user-answers .list-header {
+      color: #999;
+      padding: 10px 0; }
+    .user-profile .user-lists .user-questions h2,
+    .user-profile .user-lists .user-answers h2 {
+      color: #555;
+      font-size: 14px;
+      margin-bottom: 10px;
+      text-transform: uppercase; }
+      .user-profile .user-lists .user-questions h2 b,
+      .user-profile .user-lists .user-answers h2 b {
+        color: #999; }
+    .user-profile .user-lists .user-questions > div a,
+    .user-profile .user-lists .user-answers > div a {
+      background: transparent;
+      color: #555;
+      display: block;
+      font-size: 14px;
+      padding: 20px 0; }
+      .user-profile .user-lists .user-questions > div a > div,
+      .user-profile .user-lists .user-answers > div a > div {
+        font-weight: 500;
+        margin-bottom: 5px; }
+      .user-profile .user-lists .user-questions > div a > span,
+      .user-profile .user-lists .user-answers > div a > span {
+        color: #999;
+        font-size: 12px;
+        margin: 0 5px 0 0; }
+      .user-profile .user-lists .user-questions > div a .sepline,
+      .user-profile .user-lists .user-answers > div a .sepline {
+        color: #ccc;
+        padding: 0 5px; }
 
 input:focus,
 textarea:focus,
