@@ -1,30 +1,46 @@
 <div ng-include src="'partials/header.html'"></div>
 
-<div class="pure-g">
-  <div class="pure-u-1-1">
-    <div class="user-info">
-      <h1></h1>
-    </div>
-  </div>
+<div class="user-profile">
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+      <div class="user-header">
+        <h1>Username</h1>
 
-  <div class="pure-u-1-2" ng-init="getQuestions()">
-    <div class="user-list">
-      <h2><b>{{questions.length}}</b> Questions</h2>
-      <div>
-        <a ng-repeat="question in questions" ng-href="#/questions/{{question._id}}">
-          <span>{{question.title}}</span>
-        </a>
+        <div class="user-sections">
+          <span class="current-section">Activity</span>
+          <span>Settings</span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="pure-u-1-2" ng-init="getAnswers()">
-    <div class="user-list">
-      <h2><b>{{answers.length}}</b> Answers</h2>
-      <div>
-        <a ng-repeat="answer in answers" ng-href="#/questions/{{answer.questionid}}">
-          <span>{{answer.content}}</span>
-        </a>
+    <div class="pure-u-1-1" ng-init="getQuestions(); getAnswers()">
+      <div class="user-lists">
+        <div class="user-questions">
+          <div class="list-header">
+            Questions
+          </div>
+          <div>
+            <a ng-repeat="question in questions" ng-href="#/questions/?{{question._id}}">
+              <div>{{question.title}}</div>
+              <span>
+                <span ng-repeat="company in question.companies">{{company}}</span>
+                <span class="sepline">-</span>
+                <span ng-repeat="concept in question.concepts">{{concept}}</span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="user-answers">
+          <div class="list-header">
+            Answers
+          </div>
+          <div>
+            <a ng-repeat="answer in answers" ng-href="#/questions/?{{answer.questionid}}">
+              <div>{{answer.content}}</div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
