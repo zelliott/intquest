@@ -263,6 +263,7 @@ body {
         margin-top: 7px; }
     .question-section .question-list .question {
       border-left: 5px solid transparent;
+      cursor: pointer;
       display: block;
       height: 64px;
       margin: 10px 0 0 0;
