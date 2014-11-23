@@ -242,7 +242,8 @@ angular.module('intquestApp')
       Google: true,
       Facebook: true,
       Microsoft: true,
-      Palantir: true
+      Palantir: true,
+      Square: true
     };
 
     $scope.companiesAll = true;

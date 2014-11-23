@@ -1069,7 +1069,6 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 .pure-form input:focus:invalid,
 .pure-form textarea:focus:invalid,
 .pure-form select:focus:invalid {
-    color: #b94a48;
     border-color: #ee5f5b;
 }
 .pure-form input:focus:invalid:focus,
