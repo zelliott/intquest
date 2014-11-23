@@ -28,7 +28,7 @@ angular.module('intquestApp', [
         controller: 'QuestionsCtrl',
         reloadOnSearch: false
       })
-      .when('/users/:username', {
+      .when('/users/:userId', {
         templateUrl: 'partials/user.html',
         controller: 'UsersCtrl'
       })

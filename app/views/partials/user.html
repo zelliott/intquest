@@ -1,10 +1,10 @@
 <div ng-include src="'partials/header.html'"></div>
 
-<div class="user-profile">
+<div class="user-profile" ng-init="getUser()">
   <div class="pure-g">
     <div class="pure-u-1-1">
       <div class="user-header">
-        <h1>Username</h1>
+        <h1>{{user.username}}</h1>
 
         <div class="user-sections">
           <span class="current-section">Activity</span>

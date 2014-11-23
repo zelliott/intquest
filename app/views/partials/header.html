@@ -16,7 +16,7 @@
     </ul>
 
     <ul ng-show="currentUser" class="pull-right">
-        <li><a href="users/{{currentUser.username}}">{{ currentUser.username }}</a></li>
+        <li><a href="users/{{currentUser._id}}">{{ currentUser.username }}</a></li>
         <li><a ng-click="logout()">Logout</a></li>
     </ul>
 </div>

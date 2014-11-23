@@ -13,10 +13,22 @@ angular.module('intquestApp')
 angular.module('intquestApp')
 .factory('UserQueries', function ($resource) {
   return {
-      getQuestions: function(username, callback) {
+      getUser: function(userId, callback) {
 
         // Define resource
-        var data = $resource('/api/users/' + username + '/questions');
+        var data = $resource('/api/users/' + userId);
+
+        // Fire the get call
+        data.get().$promise.then(function(user){
+
+           // Return answer in callback
+           callback(user);
+        });
+      },
+      getQuestions: function(userId, callback) {
+
+        // Define resource
+        var data = $resource('/api/users/' + userId + '/questions');
 
         // Fire the get call
         data.query().$promise.then(function(answer){
@@ -25,10 +37,10 @@ angular.module('intquestApp')
            callback(answer);
         });
       },
-      getAnswers: function(username, callback) {
+      getAnswers: function(userId, callback) {
 
         // Define resource
-        var data = $resource('/api/users/' + username + '/answers');
+        var data = $resource('/api/users/' + userId + '/answers');
 
         // Fire the get call
         data.query().$promise.then(function(answer){

@@ -2,7 +2,7 @@
     <div class="question-header">
       <div class="question-info">
         <span>{{question.created | date:'medium'}}</span>
-        <span><a ng-href="/users/{{question.creator.username}}">{{question.creator.username}}</a></span>
+        <span><a ng-href="/users/{{question.creator._id}}">{{question.creator.username}}</a></span>
         <span>
           <span ng-repeat="company in question.companies">{{company}}</span>
         </span>
