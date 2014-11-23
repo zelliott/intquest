@@ -50,7 +50,7 @@
             0
           </span> -->
           <span>{{answer.created | date:'medium'}}</span>
-          <span><a ng-href="/users/{{answer.creator.username}}">{{answer.creator.username}}</a></span>
+          <span><a ng-href="/users/{{answer.creator._id}}">{{answer.creator.username}}</a></span>
           <a ng-show="currentUser._id == answer.creator._id && !editedAnswers[answer._id]" ng-click="toggleEditAnswer(answer)">edit</a>
           <a ng-show="currentUser._id == answer.creator._id && editedAnswers[answer._id]" ng-click="toggleEditAnswer(answer)">cancel</a>
         </div>

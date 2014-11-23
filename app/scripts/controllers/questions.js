@@ -5,6 +5,11 @@ angular.module('intquestApp')
   function ($scope, Questions, Answers, AnswersQueries,
             $location, $routeParams, $rootScope, $http) {
 
+    // Capitalize helper function
+    String.prototype.capitalize = function() {
+      return this.charAt(0).toUpperCase() + this.slice(1);
+    }
+
     // Creates a new question
     $scope.create = function() {
 
@@ -14,10 +19,10 @@ angular.module('intquestApp')
 
       // Trim their values
       for(var i=0; i<companies.length; i++) {
-        companies[i] = companies[i].trim();
+        companies[i] = companies[i].trim().capitalize();
       }
       for(var i=0; i<concepts.length; i++) {
-        concepts[i] = concepts[i].trim();
+        concepts[i] = concepts[i].trim().capitalize();
       }
 
       // Create and save the new question
@@ -58,8 +63,35 @@ angular.module('intquestApp')
     };
 
     $scope.update = function() {
-      var question = $scope.question;
-      question.$update(function() {
+
+      // If companies is a string
+      if($scope.question.companies.constructor != Array) {
+
+        // Save the companies & concepts as arrays
+        var companies = $scope.question.companies.split(",");
+
+        // Trim their values
+        for(var i=0; i<companies.length; i++) {
+          companies[i] = companies[i].trim().capitalize();
+        }
+        $scope.question.companies = companies;
+      }
+
+      // If concepts is a string
+      if($scope.question.concepts.constructor != Array) {
+
+        // Save the companies & concepts as arrays
+        var concepts = $scope.question.concepts.split(",");
+
+
+        // Trim their values
+        for(var i=0; i<concepts.length; i++) {
+          concepts[i] = concepts[i].trim().capitalize();
+        }
+        $scope.question.concepts = concepts;
+      }
+
+      $scope.question.$update(function() {
         $location.path('questions/');
       });
     };
