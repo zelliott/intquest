@@ -4,11 +4,22 @@
   line-height: 64px;
 
   .pure-menu-heading {
-    color: $blue;
+    height: 64px;
+    padding: 0 25px;
+    line-height: 64px;
+    background: #0074D9;
+    color: #FFF;
+    text-align: center;
+    margin: -1px 10px 0 0 !important;
+    font-size: 15px;
     font-weight: 600;
 
     &:hover {
-      color: darken($blue, 10%);
+      background: darken($blue, 10%);
+      // &:after {
+      //   content: 'INTQUEST';
+      //   padding-left: 10px;
+      // }
     }
   }
 
