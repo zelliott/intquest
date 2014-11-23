@@ -163,10 +163,17 @@ body {
   font-size: 14px;
   line-height: 64px; }
   .header .pure-menu-heading {
-    color: #0074D9;
+    height: 64px;
+    padding: 0 25px;
+    line-height: 64px;
+    background: #0074D9;
+    color: #FFF;
+    text-align: center;
+    margin: -1px 10px 0 0 !important;
+    font-size: 15px;
     font-weight: 600; }
     .header .pure-menu-heading:hover {
-      color: #0059a6; }
+      background: #0059a6; }
   .header ul a:hover {
     background: #fff !important;
     color: #333; }
