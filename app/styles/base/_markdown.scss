@@ -1,24 +1,27 @@
 .markdown {
 
   h1 {
-    color: #333;
-    font-size: 20px;
-    font-weight: 600;
+    color: #444;
+    font-size: 22px;
+    font-weight: 500;
   }
 
   h2 {
     color: #555;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 400;
   }
 
   h3 {
-    font-size: 16px;
+    color: #777;
+    font-size: 18px;
+    font-weight: 400;
   }
 
-  h4 {
-    color: #555;
+  h4, h5, h6 {
+    color: #999;
     font-size: 16px;
+    font-weight: 400;
   }
 
   blockquote {
@@ -59,5 +62,10 @@
     &:hover {
       color: darken($blue, 10%);
     }
+  }
+
+  hr {
+    border-style: solid;
+    color: #ddd;
   }
 }

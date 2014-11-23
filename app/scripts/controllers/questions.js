@@ -1,21 +1,39 @@
 'use strict';
 
 angular.module('intquestApp')
-  .controller('QuestionsCtrl', function ($scope, Questions, Answers, AnswersQueries, $location, $routeParams, $rootScope, $http) {
+  .controller('QuestionsCtrl',
+  function ($scope, Questions, Answers, AnswersQueries,
+            $location, $routeParams, $rootScope, $http) {
 
+    // Creates a new question
     $scope.create = function() {
+
+      // Save the companies & concepts as arrays
+      var companies = this.companies.split(","),
+          concepts = this.concepts.split(",");
+
+      // Trim their values
+      for(var i=0; i<companies.length; i++) {
+        companies[i] = companies[i].trim();
+      }
+      for(var i=0; i<concepts.length; i++) {
+        concepts[i] = concepts[i].trim();
+      }
+
+      // Create and save the new question
       var question = new Questions({
         title: this.title,
         content: this.content,
         hint: this.hint,
-        companies: this.companies.split(","),
-        concepts: this.concepts.split(","),
+        companies: companies,
+        concepts: concepts,
         level: this.level
       });
       question.$save(function() {
         $location.path('questions/');
       });
 
+      // Wipe the values
       this.title = "";
       this.content = "";
       this.hint = "";
@@ -25,8 +43,8 @@ angular.module('intquestApp')
 
     };
 
-    // Make this work slightly better
-    // Plus you have to remove answers too
+    // Remove a question
+    // Note: You have to remove answers too
     $scope.remove = function(question) {
       $scope.toggleOpenQuestion(question);
       question.$remove();
@@ -46,6 +64,7 @@ angular.module('intquestApp')
       });
     };
 
+    // Find all of the questions
     $scope.find = function() {
       Questions.query(function(questions) {
         $scope.questions = questions;
@@ -61,9 +80,11 @@ angular.module('intquestApp')
       if(question._id == $scope.openedQuestion) {
         $scope.openedQuestion = '';
         $scope.questionOpen = false;
+        $location.url("/questions");
       } else {
         $scope.openedQuestion = question._id;
         $scope.questionOpen = true;
+        $location.url("/questions/?" + question._id);
       }
 
       if($scope.questionOpen) {
@@ -94,10 +115,8 @@ angular.module('intquestApp')
     $scope.upvote = function(question) {
       if($scope.voted == false) {
         question.score--;
-        console.log(question);
       } else {
         question.score++;
-        console.log(question);
       }
     };
 
@@ -173,14 +192,14 @@ angular.module('intquestApp')
     };
 
     $scope.filterByConcepts = function(question) {
-
+      var filtered = false;
       for(var i=0; i<question.concepts.length; i++) {
-        if($scope.conceptsList[question.concepts[i]]) {
-          return $scope.conceptsList[question.concepts[i]];
-        } else {
-          return false;
+        if($scope.conceptsList[question.concepts[i]] !== undefined &&
+           $scope.conceptsList[question.concepts[i]]) {
+          filtered = true;
         }
       }
+      return filtered;
     };
 
     // Filtering by company
@@ -202,15 +221,15 @@ angular.module('intquestApp')
       }
     };
 
-
     $scope.filterByCompanies = function(question) {
+      var filtered = false;
       for(var i=0; i<question.companies.length; i++) {
-        if($scope.companiesList[question.companies[i]]) {
-          return $scope.companiesList[question.companies[i]];
-        } else {
-          return false;
+        if($scope.companiesList[question.companies[i]] !== undefined &&
+           $scope.companiesList[question.companies[i]]) {
+          filtered = true;
         }
       }
+      return filtered;
     };
 
     // Answers Ctrl
@@ -248,4 +267,4 @@ angular.module('intquestApp')
     $scope.toggleHint = function() {
       $scope.showHint = !$scope.showHint;
     }
-  });
+});

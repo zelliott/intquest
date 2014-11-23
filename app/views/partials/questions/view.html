@@ -21,9 +21,8 @@
 
     <div class="markdown" btf-markdown="question.content"></div>
     <div ng-show="question.hint!='' && !showHint" class="show-hint" ng-click="toggleHint()"><i class="fa fa-eye fa-right"></i>Show hint</div>
-    <div ng-show="showHint" class="markdown hint" btf-markdown="question.hint">
-    </div>
     <div ng-show="showHint" class="show-hint" ng-click="toggleHint()"><i class="fa fa-eye-slash fa-right"></i>Hide hint</div>
+    <div ng-show="showHint" class="markdown hint" btf-markdown="question.hint"></div>
 
     <div class="answer">
       <form class="pure-form pure-form-stacked" ng-submit="answer()" ng-show="currentUser">

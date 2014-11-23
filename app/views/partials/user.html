@@ -13,9 +13,9 @@
       </div>
     </div>
 
-    <div class="pure-u-1-1" ng-init="getQuestions(); getAnswers()">
+    <div class="pure-u-1-1">
       <div class="user-lists">
-        <div class="user-questions">
+        <div class="user-questions" ng-init="getQuestions()">
           <div class="list-header">
             Questions
           </div>
@@ -31,13 +31,16 @@
           </div>
         </div>
 
-        <div class="user-answers">
+        <div class="user-answers" ng-init="getAnswers()">
           <div class="list-header">
             Answers
           </div>
           <div>
-            <a ng-repeat="answer in answers" ng-href="#/questions/?{{answer.questionid}}">
-              <div>{{answer.content}}</div>
+            <a ng-repeat="answer in answers track by $id(answer._id + answer.questionid)" ng-href="#/questions/?{{answer.questionid}}">
+              <div ng-init="findOne(answer.questionid)">
+                {{answerQuestion[answer.questionid].title}}
+              </div>
+              <span>{{answer.content}}</span>
             </a>
           </div>
         </div>
