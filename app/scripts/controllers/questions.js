@@ -117,6 +117,9 @@ angular.module('intquestApp')
         $scope.openedQuestion = question._id;
         $scope.questionOpen = true;
         $location.url("/questions/?" + question._id);
+
+        // Toggle hint
+        $scope.toggleHint();
       }
 
       if($scope.questionOpen) {
