@@ -207,6 +207,7 @@ body {
       border-bottom: 3px solid #0059a6; }
 
 .sidebar {
+  background: #ddd;
   color: #999;
   height: 100vh;
   float: left;
@@ -217,14 +218,17 @@ body {
     cursor: pointer;
     font-size: 14px;
     font-weight: 300;
-    padding: 10px 20px;
-    width: 100%; }
+    padding: 10px 20px; }
     .sidebar .sidebar-header:hover {
       color: #555; }
   .sidebar .checkbox-list {
     padding: 10px 20px; }
     .sidebar .checkbox-list .checkbox {
       display: block; }
+
+.fixed {
+  position: fixed !important;
+  top: 0 !important; }
 
 .question-section {
   background: #ddd;
@@ -233,8 +237,8 @@ body {
     background: #eee;
     min-height: 100vh;
     padding: 7px 0 0 0;
-    width: calc(100%-240px);
-    margin-left: 240px; }
+    width: calc(100%-200px);
+    margin-left: 200px; }
     .question-section .question-list .list-bar {
       color: #999;
       font-size: 14px;
@@ -533,6 +537,29 @@ body {
     .open-question .answers > div button {
       background: #0074D9;
       border-bottom: 3px solid #0059a6; }
+
+body ::-webkit-scrollbar {
+  background: transparent;
+  border-top-right-radius: 2px;
+  -moz-border-top-right-radius: 2px;
+  -webkit-border-top-right-radius: 2px;
+  background-clip: padding-box;
+  border-bottom-right-radius: 2px;
+  -moz-border-bottom-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  background-clip: padding-box;
+  height: 12px;
+  width: 14px; }
+body ::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  background-clip: padding-box;
+  border: 5px solid #fff;
+  margin: 4px; }
+body ::-webkit-scrollbar-corner {
+  background: #fff; }
 
 .user-profile .user-header {
   background: #ddd;

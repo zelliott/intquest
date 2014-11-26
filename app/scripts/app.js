@@ -7,7 +7,8 @@ angular.module('intquestApp', [
   'ngRoute',
   'http-auth-interceptor',
   'ui.bootstrap',
-  'btford.markdown'
+  'btford.markdown',
+  'infinite-scroll'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider

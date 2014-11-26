@@ -117,14 +117,14 @@ angular.module('intquestApp')
         $scope.openedQuestion = question._id;
         $scope.questionOpen = true;
         $location.url("/questions/?" + question._id);
-
-        // Toggle hint
-        $scope.toggleHint();
       }
 
       if($scope.questionOpen) {
         $scope.findOne($scope.openedQuestion);
       }
+
+      // Hide hint
+      $scope.showHint = false;
     };
 
     $scope.findOne = function(questionId) {
@@ -139,9 +139,19 @@ angular.module('intquestApp')
       $scope.findAnswers();
     };
 
+    // Whether question is answered
+    $scope.answered = false;
+
     $scope.findAnswers = function() {
       AnswersQueries.getAnswers($scope.openedQuestion, function(answers) {
         $scope.answers = answers;
+
+        // Check if current user has answered the question
+        for(var i=0; i<answers.length; i++) {
+          if(answers[i].creator._id == $scope.currentUser._id) {
+            $scope.answered = true;
+          }
+        }
       });
     };
 
