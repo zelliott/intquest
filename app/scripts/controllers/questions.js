@@ -147,6 +147,7 @@ angular.module('intquestApp')
         $scope.answers = answers;
 
         // Check if current user has answered the question
+        $scope.answered = false;
         for(var i=0; i<answers.length; i++) {
           if(answers[i].creator._id == $scope.currentUser._id) {
             $scope.answered = true;
