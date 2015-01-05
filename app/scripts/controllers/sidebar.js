@@ -28,15 +28,15 @@
 
 
 // Fixed sidebar function
-$(window).on('scroll', function() {
-  positionSidebar(window.pageYOffset);
-  console.log('hi');
-});
-
-function positionSidebar(y) {
-  if(y >= 64) {
-    $('.sidebar').addClass('fixed');
-  } else {
-    $('.sidebar').removeClass('fixed');
-  }
-}
+// $(window).on('scroll', function() {
+//   positionSidebar(window.pageYOffset);
+//   console.log('hi');
+// });
+//
+// function positionSidebar(y) {
+//   if(y >= 64) {
+//     $('.sidebar').addClass('fixed');
+//   } else {
+//     $('.sidebar').removeClass('fixed');
+//   }
+// }
