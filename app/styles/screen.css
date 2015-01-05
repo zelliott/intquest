@@ -893,22 +893,28 @@ body {
   line-height: 64px; }
   .header .pure-menu-heading {
     height: 64px;
-    padding: 0 25px;
+    padding: 0;
     line-height: 64px;
-    background: #0074D9;
-    color: #FFF;
+    background: #fff;
+    color: #444;
     text-align: center;
     margin: -1px 10px 0 0 !important;
-    font-size: 15px;
-    font-weight: 600; }
+    font-size: 13px;
+    font-weight: 700;
+    width: 200px; }
     .header .pure-menu-heading:hover {
-      background: #0059a6; }
+      color: #222; }
   .header ul a:hover {
     background: #fff !important;
     color: #333; }
+  .header ul a:focus {
+    background: #fff !important;
+    outline: none; }
   .header .pull-right {
     height: 64px;
     line-height: 64px; }
+    .header .pull-right i {
+      font-size: 12px; }
 
 .footer {
   background: transparent;
@@ -1307,7 +1313,8 @@ body {
         color: #0074D9;
         font-size: 12px;
         float: right;
-        line-height: 19px; }
+        line-height: 19px;
+        margin-left: 20px; }
         .open-question .answers > div .answer-info > a:hover:hover {
           color: #0059a6; }
     .open-question .answers > div textarea {
