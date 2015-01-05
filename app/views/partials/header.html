@@ -1,13 +1,13 @@
 <div class="header pure-menu pure-menu-open pure-menu-horizontal" ng-controller="HeaderCtrl">
-    <a href="#" class="pure-menu-heading"><i class="oi" data-glyph="shield"></i></a>
+    <a href="#" class="pure-menu-heading"><i class="oi oi-l" data-glyph="shield"></i>INTQUEST</a>
 
     <ul>
         <li ng-repeat="item in menu" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
             <a href="/{{item.link}}">{{item.title}}</a>
         </li>
-        <li ng-repeat="item in authMenu" ng-show="currentUser" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
+        <!-- <li ng-repeat="item in authMenu" ng-show="currentUser" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
             <a href="/{{item.link}}">{{item.title}}</a>
-        </li>
+        </li> -->
     </ul>
 
     <ul ng-hide="currentUser" class="pull-right">
@@ -16,6 +16,7 @@
     </ul>
 
     <ul ng-show="currentUser" class="pull-right">
+      <li><a href="questions/create"><i class="oi oi-l" data-glyph="plus"></i>Add question</a></li>
         <li><a href="users/{{currentUser._id}}">{{ currentUser.username }}</a></li>
         <li><a ng-click="logout()">Logout</a></li>
     </ul>

@@ -11,7 +11,7 @@
         </span>
         <span>{{question.level}}</span>
         <i class="oi" data-glyph='collapse-right' ng-click="toggleOpenQuestion(question)"></i>
-        <!--<a ng-show="currentUser._id == question.creator._id" href="" ng-click="remove(question)">delete</a>-->
+        <!-- <a ng-show="currentUser._id == question.creator._id" href="" ng-click="remove(question)">delete</a> -->
         <a ng-show="currentUser._id == question.creator._id" href="/questions/edit/?{{question._id}}">edit</a>
       </div>
       <h2>
@@ -52,6 +52,7 @@
           </span> -->
           <span>{{answer.created | date:'medium'}}</span>
           <span><a ng-href="/users/{{answer.creator._id}}">{{answer.creator.username}}</a></span>
+          <a ng-show="currentUser._id == answer.creator._id" href="" ng-click="removeAnswer(answer)">delete</a>
           <a ng-show="currentUser._id == answer.creator._id && !editedAnswers[answer._id]" ng-click="toggleEditAnswer(answer)">edit</a>
           <a ng-show="currentUser._id == answer.creator._id && editedAnswers[answer._id]" ng-click="toggleEditAnswer(answer)">cancel</a>
         </div>

@@ -5,17 +5,18 @@
 
   .pure-menu-heading {
     height: 64px;
-    padding: 0 25px;
+    padding: 0;
     line-height: 64px;
-    background: #0074D9;
-    color: #FFF;
+    background: #fff;
+    color: #444;
     text-align: center;
     margin: -1px 10px 0 0 !important;
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
+    width: 200px;
 
     &:hover {
-      background: darken($blue, 10%);
+      color: #222;
     }
   }
 
@@ -24,10 +25,19 @@
       background: #fff !important;
       color: #333;
     }
+
+    a:focus {
+      background: #fff !important;
+      outline: none;
+    }
   }
 
   .pull-right {
     height: 64px;
     line-height: 64px;
+
+    i {
+      font-size: 12px;
+    }
   }
 }

@@ -51,6 +51,14 @@ angular.module('intquestApp')
     // Remove a question
     // Note: You have to remove answers too
     $scope.remove = function(question) {
+
+      AnswersQueries.getAnswers(question, function(answers) {
+        $scope.answers = answers;
+        for(var i=0; i<answers.length; i++) {
+          answers[i].$remove();
+        }
+      });
+
       $scope.toggleOpenQuestion(question);
       question.$remove();
 
@@ -320,4 +328,15 @@ angular.module('intquestApp')
     $scope.toggleHint = function() {
       $scope.showHint = !$scope.showHint;
     }
+
+    // Remove an answer
+    $scope.removeAnswer = function(answer) {
+      Answers.remove({answerId: answer._id});
+
+      for (var i in $scope.answers) {
+        if ($scope.answers[i] == answer) {
+          $scope.answers.splice(i, 1);
+        }
+      }
+    };
 });

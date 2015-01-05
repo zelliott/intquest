@@ -7,10 +7,10 @@ angular.module('intquestApp')
       "link": "questions"
     }];
 
-    $scope.authMenu = [{
-      "title": "Add question",
-      "link": "questions/create"
-    }];
+    // $scope.authMenu = [{
+    //   "title": "Add question",
+    //   "link": "questions/create"
+    // }];
 
     $scope.logout = function() {
       Auth.logout(function(err) {
