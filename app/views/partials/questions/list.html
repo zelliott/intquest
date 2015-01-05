@@ -19,13 +19,14 @@
              placeholder="Search"/>
     </div>
     <div class="question"
-         ng-repeat="question in filteredQuestions =
+         dir-paginate="question in filteredQuestions =
                   (questions |
                   orderBy:selectedOrder.attr:true |
                   filter:isWithinTimeframe |
                   filter:search |
                   filter:filterByConcepts |
-                  filter:filterByCompanies)"
+                  filter:filterByCompanies) |
+                  itemsPerPage: 6"
          ng-class="{'open-list-question': question._id == openedQuestion && questionOpen}"
          ng-click="toggleOpenQuestion(question)">
         <div>
@@ -54,6 +55,12 @@
     <div class="no-questions" ng-show="filteredQuestions.length == 0">
       No questions
     </div>
+
+    <dir-pagination-controls
+      boundary-links="true"
+      on-page-change="pageChangeHandler(newPageNumber)"
+      template-url="bower_components/angular-utils-pagination/dirPagination.tpl.html">
+    </dir-pagination-controls>
   </div>
 </div>
 

@@ -113,10 +113,14 @@ angular.module('intquestApp')
         $scope.openedQuestion = '';
         $scope.questionOpen = false;
         $location.url("/questions");
+
+        // $('body').removeClass('overflow-hidden');
       } else {
         $scope.openedQuestion = question._id;
         $scope.questionOpen = true;
         $location.url("/questions/?" + question._id);
+
+        // $('body').addClass('overflow-hidden');
       }
 
       if($scope.questionOpen) {
@@ -137,6 +141,8 @@ angular.module('intquestApp')
         $scope.question = question;
       });
       $scope.findAnswers();
+
+      //$('body').addClass('overflow-hidden');
     };
 
     // Whether question is answered

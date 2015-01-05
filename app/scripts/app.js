@@ -8,7 +8,8 @@ angular.module('intquestApp', [
   'http-auth-interceptor',
   'ui.bootstrap',
   'btford.markdown',
-  'infinite-scroll'
+  // 'infinite-scroll'
+  'angularUtils.directives.dirPagination'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider

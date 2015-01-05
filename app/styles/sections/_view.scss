@@ -1,5 +1,5 @@
 .open-question {
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.95);
   @include box-shadow(-2px, 0, 10px, rgba(0, 0, 0, 0.1));
   height: 100vh;
   overflow-y: scroll;
@@ -256,21 +256,22 @@
 // Scrollbars for view
 body {
   ::-webkit-scrollbar {
-    background: transparent;
-    @include border-top-right-radius(2px);
-    @include border-bottom-right-radius(2px);
-    height: 12px;
     width: 14px;
+    height: 18px;
   }
-
   ::-webkit-scrollbar-thumb {
-      background: #ccc;
-      @include border-radius(2px);
-      border: 5px solid #fff;
-      margin: 4px;
+    height: 6px;
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    @include border-radius(10px);
+    background-color: rgba(0, 0, 0, 0.2);
   }
-
+  ::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+  }
   ::-webkit-scrollbar-corner {
-      background: #fff;
+    background-color: transparent;
   }
 }
