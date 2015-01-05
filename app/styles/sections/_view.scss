@@ -93,6 +93,10 @@
     &:hover {
       color: darken($blue, 10%);
     }
+
+    i {
+      font-size: 14px;
+    }
   }
 
   .hint {
@@ -174,6 +178,11 @@
 
     &:hover {
       color: #555;
+    }
+
+    i {
+      font-size: 13px;
+      margin-top: 4px;
     }
   }
 

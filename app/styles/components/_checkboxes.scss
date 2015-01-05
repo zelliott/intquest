@@ -13,14 +13,17 @@
 }
 
 [type=checkbox] + label:before {
-    content: "\f10c";
-    font-family: FontAwesome;
-    margin-right: 5px;
+    content: "";
+    font-family: 'Icons';
+    float: left;
+    font-size: 12px;
+    margin: 2px 22px 0 0;
 }
 
 [type=checkbox]:checked + label:before {
-    content: "\f05d";
-    font-family: FontAwesome;
+    content: "\e033";
+    font-family: 'Icons';
+    margin-right: 10px;
 }
 
 [type=checkbox]:checked + label {
