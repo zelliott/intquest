@@ -21,14 +21,19 @@
   }
 
   ul {
-    a:hover {
-      background: #fff !important;
-      color: #333;
-    }
 
-    a:focus {
-      background: #fff !important;
-      outline: none;
+    a {
+      color: #999 !important;
+
+      &:hover {
+        background: #fff !important;
+        color: #333 !important;
+      }
+
+      &:focus {
+        background: #fff !important;
+        outline: none;
+      }
     }
   }
 
