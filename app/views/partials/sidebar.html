@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div class="sidebar" ng-init="initConcepts()">
   <div class="sidebar-header">
     Concepts
     <i class="oi pull-right" data-glyph="caret-bottom"></i></div>
@@ -17,11 +17,12 @@
              ng-model="conceptsList[concept]"
              id="concept_{{concept}}"/>
       <label for="concept_{{concept}}">
-        {{concept}}
+        <span>{{concept}}</span>
+        <!--<b>0</b>-->
       </label>
     </div>
   </div>
-  <div class="sidebar-header">
+  <!-- <div class="sidebar-header">
     Companies
     <i class="oi pull-right" data-glyph="caret-bottom"></i></div>
   <div class="checkbox-list">
@@ -42,7 +43,7 @@
         {{company}}
       </label>
     </div>
-  </div>
+  </div> -->
 
   <!-- Sidebar footer -->
   <div class="sidebar-footer">

@@ -34,12 +34,28 @@
                 <input type="text" ng-model="companies" id="companies" placeholder="Companies" required="" tabindex="4">
               </div>
 
-              <div class="pure-u-2-3">
+              <!-- <div class="pure-u-2-3">
                 <label for="concepts">
                   Concepts
                   <span class="pull-right">Separate with commas</span>
                 </label>
                 <input type="text" ng-model="concepts" id="concepts" placeholder="Concepts" required="" tabindex="5">
+              </div> -->
+
+              <div class="pure-u-2-3" ng-init='initConcepts()'>
+                <label for="concepts">
+                  Concepts
+                  <span class="pull-right">Backspace to remove a tag</span>
+                </label>
+                <select chosen
+                        multiple
+                        ng-model="concepts"
+                        ng-multiple-"true"
+                        id="concepts"
+                        required=""
+                        allow-single-deselect="true"
+                        ng-options="concept for concept in conceptNames">
+                </select>
               </div>
 
               <div class="pure-u-1-3">

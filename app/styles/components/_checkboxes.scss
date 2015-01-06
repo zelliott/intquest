@@ -28,4 +28,8 @@
 
 [type=checkbox]:checked + label {
     color: #666;
+
+    &:hover {
+      color: #999;
+    }
 }

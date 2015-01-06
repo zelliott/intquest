@@ -2,7 +2,7 @@
 
 angular.module('intquestApp')
   .controller('QuestionsCtrl',
-  function ($scope, Questions, Answers, AnswersQueries,
+  function ($scope, Questions, Answers, AnswersQueries, ConceptTags,
             $location, $routeParams, $rootScope, $http) {
 
     // Capitalize helper function
@@ -14,15 +14,11 @@ angular.module('intquestApp')
     $scope.create = function() {
 
       // Save the companies & concepts as arrays
-      var companies = this.companies.split(","),
-          concepts = this.concepts.split(",");
+      var companies = this.companies.split(",");
 
       // Trim their values
       for(var i=0; i<companies.length; i++) {
         companies[i] = companies[i].trim().capitalize();
-      }
-      for(var i=0; i<concepts.length; i++) {
-        concepts[i] = concepts[i].trim().capitalize();
       }
 
       // Create and save the new question
@@ -31,7 +27,7 @@ angular.module('intquestApp')
         content: this.content,
         hint: this.hint,
         companies: companies,
-        concepts: concepts,
+        concepts: $scope.concepts,
         level: this.level
       });
       question.$save(function() {
@@ -83,20 +79,6 @@ angular.module('intquestApp')
           companies[i] = companies[i].trim().capitalize();
         }
         $scope.question.companies = companies;
-      }
-
-      // If concepts is a string
-      if($scope.question.concepts.constructor != Array) {
-
-        // Save the companies & concepts as arrays
-        var concepts = $scope.question.concepts.split(",");
-
-
-        // Trim their values
-        for(var i=0; i<concepts.length; i++) {
-          concepts[i] = concepts[i].trim().capitalize();
-        }
-        $scope.question.concepts = concepts;
       }
 
       $scope.question.$update(function() {
@@ -235,12 +217,23 @@ angular.module('intquestApp')
 
     // Filtering by concept
 
-    $scope.conceptsList = {
-      Algorithms: true,
-      Data: true,
-      Math: true,
-      Puzzles: true,
-      Unix: true
+    $scope.conceptsList = {};
+
+    $scope.initConcepts = function() {
+      $scope.conceptNames = [];
+
+      ConceptTags.query(function(concepttags) {
+        $scope.concepttags = concepttags;
+        for(var i=0; concepttags.length; i++) {
+          if(typeof concepttags[i] !== 'undefined') {
+            $scope.conceptsList[concepttags[i].name] = true;
+
+            $scope.conceptNames.unshift(concepttags[i].name);
+          } else {
+            break;
+          }
+        }
+      });
     };
 
     $scope.conceptsAll = true;

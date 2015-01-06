@@ -44,6 +44,17 @@
 
         span {
           margin-right: 5px;
+
+          &:after {
+            content: ',';
+          }
+        }
+
+        span:last-child {
+
+          &:after {
+            content: '';
+          }
         }
 
         a {
