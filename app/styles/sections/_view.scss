@@ -26,10 +26,31 @@
     div {
 
       a {
-        color: $blue;
+        color: palette(Blue, $shade: 500);
 
         &:hover {
-          color: darken($blue, 10%);
+          color: palette(Blue, $shade: 700);
+        }
+      }
+
+      .understood {
+        color: palette(Green, $shade: 500);
+
+        &:hover {
+          color: palette(Green, $shade: 700);
+        }
+
+        i {
+          font-size: 11px;
+          margin-right: 10px;
+        }
+      }
+
+      .not-understood {
+
+        i {
+          font-size: 11px;
+          margin-right: 10px;
         }
       }
     }
@@ -75,7 +96,7 @@
         margin-right: 20px;
       }
 
-      i {
+      > i {
         color: #aaa;
         cursor: pointer;
         float: right;
@@ -94,7 +115,7 @@
   }
 
   .show-hint {
-    color: $blue;
+    color: palette(Blue, $shade: 500);
     cursor: pointer;
     font-size: 16px;
     margin-top: 20px;
@@ -102,7 +123,7 @@
     width: 100%;
 
     &:hover {
-      color: darken($blue, 10%);
+      color: palette(Blue, $shade: 700);
     }
 
     i {
@@ -128,10 +149,10 @@
       width: 100%;
 
       a {
-        color: $blue;
+        color: palette(Blue, $shade: 500);
 
         &:hover {
-          color: darken($blue, 10%);
+          color: palette(Blue, $shade: 700);
         }
       }
     }
@@ -147,12 +168,12 @@
       }
 
       a {
-        color: $blue;
+        color: palette(Blue, $shade: 500);
         font-size: 12px;
         margin-left: 20px;
 
         &:hover {
-          color: darken($blue, 10%);
+          color: palette(Blue, $shade: 700);
         }
       }
     }
@@ -173,8 +194,8 @@
     }
 
     button {
-      background: $blue;
-      border-bottom: 3px solid darken($blue, 10%);
+      background: palette(Blue, $shade: 500);
+      border-bottom: 3px solid palette(Blue, $shade: 700);
     }
   }
 
@@ -227,17 +248,17 @@
         }
 
         .upvote {
-          color: $blue;
+          color: palette(Blue, $shade: 500);
           cursor: pointer;
           font-weight: 600;
 
           &:hover {
-            color: darken($blue, 10%);
+            color: palette(Blue, $shade: 700);
           }
         }
 
         > a {
-          color: $blue;
+          color: palette(Blue, $shade: 500);
           font-size: 12px;
           float: right;
           line-height: 19px;
@@ -245,7 +266,7 @@
 
           &:hover {
             &:hover {
-              color: darken($blue, 10%);
+              color: palette(Blue, $shade: 700);
             }
           }
         }
@@ -267,8 +288,8 @@
       }
 
       button {
-        background: $blue;
-        border-bottom: 3px solid darken($blue, 10%);
+        background: palette(Blue, $shade: 500);
+        border-bottom: 3px solid palette(Blue, $shade: 700);
       }
     }
   }

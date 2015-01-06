@@ -2,12 +2,13 @@
 
 angular.module('intquestApp')
   .factory('User', function ($resource) {
-    return $resource('/auth/users/:id/', {},
-      {
-        'update': {
-          method:'PUT'
-        }
-      });
+    return $resource('/api/users/:userId/', {
+      userId: '@_id'
+    }, {
+      update: {
+        method:'PUT'
+      }
+    });
   });
 
 angular.module('intquestApp')

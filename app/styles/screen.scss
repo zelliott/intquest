@@ -1,10 +1,11 @@
 // Vendors
 @import url(../bower_components/pure/pure.css);
 @import "vendors/open-iconic";
+@import "vendors/md-colors";
 @import "vendors/chosen";
 
 // Colors vendor
-@import '../../node_modules/colors.css/sass/variables';
+// @import '../../node_modules/colors.css/sass/variables';
 
 // Modules
 @import 'modules/variables';

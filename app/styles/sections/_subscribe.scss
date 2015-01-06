@@ -23,8 +23,8 @@
     }
 
     button {
-      background: $blue;
-      border-bottom: 3px solid darken($blue, 10%);
+      background: palette(Blue, $shade: 500);
+      border-bottom: 3px solid palette(Blue, $shade: 700);
     }
   }
 }

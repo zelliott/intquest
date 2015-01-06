@@ -3,7 +3,7 @@
 angular.module('intquestApp')
   .controller('QuestionsCtrl',
   function ($scope, Questions, Answers, AnswersQueries, ConceptTags,
-            $location, $routeParams, $rootScope, $http) {
+            $location, $routeParams, $rootScope, $http, User) {
 
     // Capitalize helper function
     String.prototype.capitalize = function() {
@@ -103,14 +103,11 @@ angular.module('intquestApp')
         $scope.openedQuestion = '';
         $scope.questionOpen = false;
         $location.url("/questions");
-
-        // $('body').removeClass('overflow-hidden');
       } else {
         $scope.openedQuestion = question._id;
         $scope.questionOpen = true;
         $location.url("/questions/?" + question._id);
-
-        // $('body').addClass('overflow-hidden');
+        $scope.checkUnderstood(question._id);
       }
 
       if($scope.questionOpen) {
@@ -125,14 +122,13 @@ angular.module('intquestApp')
       if(questionId == null) {
         questionId = $location.$$url.slice(17);
       }
+      $scope.checkUnderstood(questionId);
       Questions.get({
         questionId: questionId
       }, function(question) {
         $scope.question = question;
       });
       $scope.findAnswers();
-
-      //$('body').addClass('overflow-hidden');
     };
 
     // Whether question is answered
@@ -151,6 +147,27 @@ angular.module('intquestApp')
         }
       });
     };
+
+    // Mark question as understood
+    $scope.understood = function(questionid) {
+      var user = $scope.currentUser;
+      if(user.marked.indexOf(questionid) == -1) {
+        user.marked.push(questionid);
+        $scope.marked = true;
+      } else {
+        user.marked.splice(user.marked.indexOf(questionid), 1);
+        $scope.marked = false;
+      }
+      User.update(user);
+    };
+
+    $scope.checkUnderstood = function(questionid) {
+      if($scope.currentUser.marked.indexOf(questionid) != -1) {
+        $scope.marked = true;
+      } else {
+        $scope.marked = false;
+      }
+    }
 
     // Clicking score button
 

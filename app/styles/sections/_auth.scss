@@ -24,29 +24,29 @@
   }
 
   button {
-    background: $blue;
-    border-bottom: 3px solid darken($blue, 10%);
+    background: palette(Blue, $shade: 500);
+    border-bottom: 3px solid palette(Blue, $shade: 700);
   }
 
   button[disabled=disabled], button:disabled {
-    background: $blue;
-    border-bottom: 3px solid darken($blue, 10%);
+    background: palette(Blue, $shade: 500);
+    border-bottom: 3px solid palette(Blue, $shade: 700);
     @include opacity(0.5);
   }
 
   .auth-link {
-    color: $blue;
+    color: palette(Blue, $shade: 500);
     display: block;
     margin-top: 20px;
     text-align: center;
 
     &:hover {
-      color: darken($blue, 10%);
+      color: palette(Blue, $shade: 700);
     }
   }
 
   .help-block {
-    color: $red;
+    color: palette(Red, $shade: 500);
   }
 }
 

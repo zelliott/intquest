@@ -18,12 +18,12 @@
         }
 
         a {
-          color: $blue;
+          color: palette(Blue, $shade: 500);
           font-size: 12px;
           margin-left: 20px;
 
           &:hover {
-            color: darken($blue, 10%);
+            color: palette(Blue, $shade: 700);
           }
         }
       }
@@ -48,8 +48,8 @@
       }
 
       button {
-        background: $blue;
-        border-bottom: 3px solid darken($blue, 10%);
+        background: palette(Blue, $shade: 500);
+        border-bottom: 3px solid palette(Blue, $shade: 700);
       }
 
       .chosen-container {

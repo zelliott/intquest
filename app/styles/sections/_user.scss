@@ -95,7 +95,7 @@
 
           &:hover {
             background: #e5e5e5;
-            border-color: $blue;
+            border-color: palette(Blue, $shade: 500);
           }
         }
       }

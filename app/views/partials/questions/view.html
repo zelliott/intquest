@@ -3,9 +3,9 @@
       <div class="question-info">
         <span>{{question.created | date:'medium'}}</span>
         <span><a ng-href="/users/{{question.creator._id}}">{{question.creator.username}}</a></span>
-        <span>
+        <!-- <span>
           <span ng-repeat="company in question.companies">{{company}}</span>
-        </span>
+        </span> -->
         <span>
           <span ng-repeat="concept in question.concepts">{{concept}}</span>
         </span>
@@ -13,6 +13,13 @@
         <i class="oi" data-glyph='collapse-right' ng-click="toggleOpenQuestion(question)"></i>
         <!-- <a ng-show="currentUser._id == question.creator._id" href="" ng-click="remove(question)">delete</a> -->
         <a ng-show="currentUser._id == question.creator._id" href="/questions/edit/?{{question._id}}">edit</a>
+        <a class="not-understood" ng-show="!marked" ng-click="understood(question._id)">
+          Mark as understood
+        </a>
+        <a class="understood" ng-show="marked" ng-click="understood(question._id)">
+          <i class="oi" data-glyph="check"></i>
+          Understood
+        </a>
       </div>
       <h2>
         {{question.title}}

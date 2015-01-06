@@ -32,7 +32,7 @@
 
   pre > code {
     background: #eee;
-    border-left: 2px solid $green;
+    border-left: 2px solid palette(Green, $shade: 500);
     color: #333;
     display: block;
     font-family: Monaco, monospace;
@@ -57,10 +57,10 @@
   }
 
   a {
-    color: $blue;
+    color: palette(Blue, $shade: 500);
 
     &:hover {
-      color: darken($blue, 10%);
+      color: palette(Blue, $shade: 700);
     }
   }
 
