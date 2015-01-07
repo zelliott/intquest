@@ -13,10 +13,10 @@
         <i class="oi" data-glyph='collapse-right' ng-click="toggleOpenQuestion(question)"></i>
         <!-- <a ng-show="currentUser._id == question.creator._id" href="" ng-click="remove(question)">delete</a> -->
         <a ng-show="currentUser._id == question.creator._id" href="/questions/edit/?{{question._id}}">edit</a>
-        <a class="not-understood" ng-show="!marked" ng-click="understood(question._id)">
+        <a class="not-understood" ng-show="!marked && currentUser" ng-click="understood(question._id)">
           Mark as understood
         </a>
-        <a class="understood" ng-show="marked" ng-click="understood(question._id)">
+        <a class="understood" ng-show="marked && currentUser" ng-click="understood(question._id)">
           <i class="oi" data-glyph="check"></i>
           Understood
         </a>
@@ -39,7 +39,7 @@
           <span class="pull-right"><i class="fa fa-check fa-right"></i>Markdown supported</span>
         </label>
         <textarea ng-model="content" id="answer" required=""></textarea>
-        <button type="submit" class="pure-button pure-button-primary">Answer</button>
+        <button type="submit" class="btn pure-button pure-button-primary">Answer</button>
       </form>
       <div ng-hide="currentUser"><a href="/login">Login</a> or <a href="/signup">sign up</a> to answer</div>
       <div ng-show="currentUser && answered">You've already answered this question</div>
@@ -67,7 +67,7 @@
         <div ng-hide="editedAnswers[answer._id]" class="markdown" btf-markdown="answer.content"></div>
         <form class="pure-form pure-form-stacked" ng-show="editedAnswers[answer._id]" ng-submit="updateAnswer(); toggleEditAnswer(answer)">
             <textarea ng-model="answer.content" value="answer.content" required=""></textarea>
-            <button type="submit" class="pure-button pure-button-primary">Save</button>
+            <button type="submit" class="btn pure-button pure-button-primary">Save</button>
         </form>
       </div>
     </div>

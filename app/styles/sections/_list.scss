@@ -1,5 +1,5 @@
 .question-section {
-  background: #ddd;
+  background: transparent;
   width: 100%;
 
   .question-list {
@@ -13,8 +13,8 @@
       border-bottom: 1px solid #ddd;
       color: #999;
       font-size: 14px;
-      height: 64px;
-      line-height: 64px;
+      height: 54px;
+      line-height: 54px;
       padding: 0 20px;
 
       span {
@@ -31,27 +31,35 @@
       }
 
       select.pull-right {
-        margin: 21px 0 0 20px;
+        margin: 16px 0 0 20px;
       }
 
       .search {
-        background: #ddd;
+        background: #eee;
         border: none;
-        border-bottom: 1px solid #ccc;
+        border: 2px solid #ddd;
         @include border-radius(2px);
-        height: 34px;
+        height: 30px;
         padding: 0 7px;
-        margin-top: 15px;
+        margin-top: 10px;
         width: 200px;
+
+        &:hover {
+          border-color: #ccc;
+        }
+
+        &:focus {
+          border-color: palette(Blue, $shade: 500);
+        }
       }
     }
 
     .question {
       border-left: 5px solid transparent;
+      border-bottom: 1px solid #e5e5e5;
       cursor: pointer;
       display: block;
-      height: 64px;
-      padding: 5px 20px;
+      padding: 15px 20px;
       width: calc(100% - 45px);
 
       &:hover {
@@ -59,8 +67,8 @@
       }
 
       > div {
-        float: left;
-        height: 64px;
+        display: inline-block;
+        vertical-align: top;
       }
 
       .score {
@@ -87,9 +95,9 @@
         color: palette(Blue, $shade: 500) !important;
       }
 
-      h1 {
+      .title {
         line-height: 100%;
-        margin: 3px 0;
+        margin-bottom: 5px;
 
         a {
           color: #555;
@@ -101,7 +109,7 @@
       span {
         color: #999;
         font-size: 12px;
-        margin: 0 5px 0 0;
+        margin: 0 10px 0 0;
       }
 
       .sepline {
@@ -109,10 +117,15 @@
         padding: 0 5px;
       }
 
+      // .time {
+      //   display: block;
+      //   margin-bottom: 5px;
+      // }
+
       .creator {
         color: #999;
-        font-size: 14px;
-        line-height: 64px;
+        font-size: 13px;
+        line-height: 38px;
 
         &:hover {
           color: #666;

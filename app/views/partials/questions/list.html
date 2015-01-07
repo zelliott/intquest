@@ -1,8 +1,10 @@
-<div ng-include src="'partials/header.html'"></div>
 <!--<div ng-include src="'partials/subscribe.html'"></div>-->
-<div class="question-section">
+<div class="question-section" ng-init="find()">
   <div ng-include src="'partials/sidebar.html'"></div>
-  <div class="question-list" ng-init="find()">
+  <div class="question-list">
+
+    <div ng-include src="'partials/header.html'"></div>
+
     <div class="list-bar">
       <select ng-model="selectedOrder"
               ng-options="order.option for order in orders"
@@ -10,6 +12,7 @@
       <select ng-show="selectedOrder.option == 'Popular'"
               ng-model="selectedTimeframe"
               ng-options="timeframe.option for timeframe in timeframes"></select>
+      <!-- <input type="checkbox" ng-click="filterByMarked()"/><label>Not understood</label> -->
       <select class="pull-right"
               ng-model="selectedSearchParam"
               ng-options="searchParam.option for searchParam in searchParams"></select>
@@ -39,7 +42,7 @@
           </div> -->
         </div>
         <div>
-          <h1><a>{{question.title}}</a></h1>
+          <div class="title"><a>{{question.title}}</a></div>
           <span>
             <!--<span ng-repeat="company in question.companies">{{company}}</span>-->
             <!--<span class="sepline">-</span>-->
@@ -47,6 +50,7 @@
           </span>
         </div>
         <div class="pull-right">
+            <!--<span class="time">{{question.created | date:'shortTime'}}</span>-->
             <a class="creator" ng-href="/users/{{question.creator._id}}">{{question.creator.username}}</a>
         </div>
     </div>

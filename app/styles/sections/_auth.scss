@@ -23,17 +23,6 @@
     width: 200px;
   }
 
-  button {
-    background: palette(Blue, $shade: 500);
-    border-bottom: 3px solid palette(Blue, $shade: 700);
-  }
-
-  button[disabled=disabled], button:disabled {
-    background: palette(Blue, $shade: 500);
-    border-bottom: 3px solid palette(Blue, $shade: 700);
-    @include opacity(0.5);
-  }
-
   .auth-link {
     color: palette(Blue, $shade: 500);
     display: block;
@@ -66,7 +55,7 @@
 
   span {
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 30px;
     margin-left: 10px;
     text-transform: uppercase;

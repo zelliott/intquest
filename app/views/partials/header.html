@@ -1,9 +1,7 @@
 <div class="header pure-menu pure-menu-open pure-menu-horizontal" ng-controller="HeaderCtrl">
-    <a href="#" class="pure-menu-heading"><i class="oi oi-l" data-glyph="shield"></i>INTQUEST</a>
-
     <ul>
         <li ng-repeat="item in menu" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
-            <a href="/{{item.link}}">{{item.title}}</a>
+            <a href="/{{item.link}}"><i class="oi oi-l" data-glyph="list-rich"></i>{{item.title}}</a>
         </li>
         <!-- <li ng-repeat="item in authMenu" ng-show="currentUser" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
             <a href="/{{item.link}}">{{item.title}}</a>

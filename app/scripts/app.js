@@ -62,7 +62,7 @@ angular.module('intquestApp', [
 
     // On catching 401 errors, redirect to the login page.
     $rootScope.$on('event:auth-loginRequired', function() {
-      $location.path('/');
+      $location.path('/questions/');
       return false;
     });
   });

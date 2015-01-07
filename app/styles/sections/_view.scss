@@ -132,7 +132,8 @@
   }
 
   .hint {
-    background: #FCF8D4;
+    background: palette(Yellow, $shade: 100);
+    border-bottom: 2px solid palette(Yellow, $shade: 300);
     padding: 5px 20px;
   }
 
@@ -191,11 +192,6 @@
 
     textarea {
       height: 64px;
-    }
-
-    button {
-      background: palette(Blue, $shade: 500);
-      border-bottom: 3px solid palette(Blue, $shade: 700);
     }
   }
 

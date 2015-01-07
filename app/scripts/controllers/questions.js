@@ -102,7 +102,7 @@ angular.module('intquestApp')
       if(question._id == $scope.openedQuestion) {
         $scope.openedQuestion = '';
         $scope.questionOpen = false;
-        $location.url("/questions");
+        $location.url("/questions/");
       } else {
         $scope.openedQuestion = question._id;
         $scope.questionOpen = true;
@@ -141,7 +141,8 @@ angular.module('intquestApp')
         // Check if current user has answered the question
         $scope.answered = false;
         for(var i=0; i<answers.length; i++) {
-          if(answers[i].creator._id == $scope.currentUser._id) {
+          if($scope.currentUser != null &&
+             answers[i].creator._id == $scope.currentUser._id) {
             $scope.answered = true;
           }
         }
@@ -162,10 +163,12 @@ angular.module('intquestApp')
     };
 
     $scope.checkUnderstood = function(questionid) {
-      if($scope.currentUser.marked.indexOf(questionid) != -1) {
-        $scope.marked = true;
-      } else {
-        $scope.marked = false;
+      if($scope.currentUser != null) {
+        if($scope.currentUser.marked.indexOf(questionid) != -1) {
+          $scope.marked = true;
+        } else {
+          $scope.marked = false;
+        }
       }
     }
 
@@ -218,6 +221,11 @@ angular.module('intquestApp')
         return true;
       }
     };
+
+    // Filtered by marked
+    // $scope.filterByMarked = function() {
+    //
+    // };
 
     // Searching questions
 
