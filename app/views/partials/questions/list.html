@@ -61,7 +61,7 @@
               <i class="oi oi-l" data-glyph="check"></i>
               Reviewed
             </span>
-            <span class="not-marked" ng-hide="!currentUser || showMarked(question)">
+            <span class="not-marked" ng-hide="currentUser || showMarked(question)">
               Unreviewed
             </span>
             <a class="creator" ng-href="/users/{{question.creator._id}}">{{question.creator.username}}</a>
