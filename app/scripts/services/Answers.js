@@ -3,7 +3,7 @@
 angular.module('intquestApp')
   .factory('Answers', function ($resource) {
     return $resource('api/answers/:answerId', {
-      // answerId: '@_id'
+      answerId: '@_id'
     }, {
       update: {
         method: 'PUT'

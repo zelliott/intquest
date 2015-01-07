@@ -1,35 +1,64 @@
 [type=checkbox] {
-    display: none;
+  display: none;
 }
 
 [type=checkbox] + label {
   cursor: pointer;
   display: block;
-  padding: 5px 0;
-
-  &:hover {
-    color: #999;
-  }
 }
 
 [type=checkbox] + label:before {
-    content: "";
-    font-family: 'Icons';
-    float: left;
-    font-size: 12px;
-    margin: 2px 22px 0 0;
+  content: "";
+  font-family: 'Icons';
+  float: left;
+  font-size: 12px;
+  margin-right: 22px;
 }
 
 [type=checkbox]:checked + label:before {
-    content: "\e033";
-    font-family: 'Icons';
-    margin-right: 10px;
+  content: "\e033";
+  font-family: 'Icons';
+  margin-right: 10px;
 }
 
-[type=checkbox]:checked + label {
-    color: #999;
+
+.sidebar {
+
+  [type=checkbox] + label:before {
+    margin-top: 2px;
+  }
+
+  [type=checkbox] + label {
+    padding: 5px 0;
 
     &:hover {
-      color: #ccc;
+      color: #999;
     }
+  }
+
+  [type=checkbox]:checked + label {
+      color: #999;
+
+      &:hover {
+        color: #ccc;
+      }
+  }
+}
+
+.list-bar {
+
+  [type=checkbox] + label {
+
+    &:hover {
+      color: #333;
+    }
+  }
+
+  [type=checkbox]:checked + label {
+    color: palette(Blue, $shade: 500);
+
+    &:hover {
+      color: palette(Blue, $shade: 700);
+    }
+  }
 }

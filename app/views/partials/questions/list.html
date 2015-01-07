@@ -12,7 +12,12 @@
       <select ng-show="selectedOrder.option == 'Popular'"
               ng-model="selectedTimeframe"
               ng-options="timeframe.option for timeframe in timeframes"></select>
-      <!-- <input type="checkbox" ng-click="filterByMarked()"/><label>Not understood</label> -->
+      <input type="checkbox"
+             ng-model="$parent.markedFilter"
+             id="marked"/>
+      <label for="marked">
+        Show only not understood
+      </label>
       <select class="pull-right"
               ng-model="selectedSearchParam"
               ng-options="searchParam.option for searchParam in searchParams"></select>
@@ -28,7 +33,8 @@
                   filter:isWithinTimeframe |
                   filter:search |
                   filter:filterByConcepts |
-                  filter:filterByCompanies) |
+                  filter:filterByCompanies |
+                  filter:filterByMarked) |
                   itemsPerPage: 6"
          ng-class="{'open-list-question': question._id == openedQuestion && questionOpen}"
          ng-click="toggleOpenQuestion(question)">

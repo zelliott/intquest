@@ -222,11 +222,6 @@ angular.module('intquestApp')
       }
     };
 
-    // Filtered by marked
-    // $scope.filterByMarked = function() {
-    //
-    // };
-
     // Searching questions
 
     $scope.searchParams = [
@@ -309,6 +304,16 @@ angular.module('intquestApp')
         }
       }
       return filtered;
+    };
+
+    // Filtered by marked
+    $scope.filterByMarked = function(question) {
+      console.log($scope.markedFilter);
+      if($scope.markedFilter == true) {
+        return ($scope.currentUser.marked.indexOf(question._id) == -1);
+      } else {
+        return true;
+      }
     };
 
     // Answers Ctrl
