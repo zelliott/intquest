@@ -316,6 +316,11 @@ angular.module('intquestApp')
       }
     };
 
+    $scope.showMarked = function(question) {
+      return ($scope.currentUser.marked.indexOf(question._id) != -1);
+
+    };
+
     // Answers Ctrl
 
     $scope.answer = function() {

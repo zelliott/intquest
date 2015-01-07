@@ -18,13 +18,14 @@
         <div class="user-questions" ng-init="getQuestions()">
           <div class="list-header">
             Questions
+            <b>{{questions.length}}</b>
           </div>
           <div>
             <a ng-repeat="question in questions" ng-href="#/questions/?{{question._id}}">
               <div>{{question.title}}</div>
               <span>
-                <span ng-repeat="company in question.companies">{{company}}</span>
-                <span class="sepline">-</span>
+                <!--<span ng-repeat="company in question.companies">{{company}}</span>
+                <span class="sepline">-</span>-->
                 <span ng-repeat="concept in question.concepts">{{concept}}</span>
               </span>
             </a>
@@ -34,6 +35,7 @@
         <div class="user-answers" ng-init="getAnswers()">
           <div class="list-header">
             Answers
+            <b>{{answers.length}}</b>
           </div>
           <div>
             <a ng-repeat="answer in answers track by $id(answer._id + answer.questionid)" ng-href="#/questions/?{{answer.questionid}}">
