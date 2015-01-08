@@ -14,19 +14,19 @@ angular.module('intquestApp')
     $scope.create = function() {
 
       // Save the companies & concepts as arrays
-      var companies = this.companies.split(",");
-
+      // var companies = this.companies.split(",");
+      //
       // Trim their values
-      for(var i=0; i<companies.length; i++) {
-        companies[i] = companies[i].trim().capitalize();
-      }
+      // for(var i=0; i<companies.length; i++) {
+      //   companies[i] = companies[i].trim().capitalize();
+      // }
 
       // Create and save the new question
       var question = new Questions({
         title: this.title,
         content: this.content,
         hint: this.hint,
-        companies: companies,
+        // companies: companies,
         concepts: $scope.concepts,
         level: this.level
       });
@@ -38,7 +38,7 @@ angular.module('intquestApp')
       this.title = "";
       this.content = "";
       this.hint = "";
-      this.companies = "";
+      // this.companies = "";
       this.concepts = "";
       this.level = "";
 
@@ -185,10 +185,12 @@ angular.module('intquestApp')
     // Ordering questions
 
     $scope.orders = [
-      { option: 'All', attr: '' },
-      { option: 'Recent', attr: 'created' },
-      { option: 'Popular', attr: 'score' },
-      { option: 'Hot', attr: ''}
+      { option: 'Easy First', attr: 'level', rev: false },
+      { option: 'Hard First', attr: 'level', rev: true },
+      { option: 'Recent', attr: 'created', rev: true },
+      { option: 'Oldest', attr: 'created', rev: false },
+      //{ option: 'Popular', attr: 'score' },
+      //{ option: 'Hot', attr: ''}
     ];
 
     $scope.selectedOrder = $scope.orders[0];
@@ -225,10 +227,10 @@ angular.module('intquestApp')
     // Searching questions
 
     $scope.searchParams = [
-      { option: 'Title', attr: 'title' },
-      { option: 'Company', attr: 'companies' },
-      { option: 'Concept', attr: 'concepts' },
-      { option: 'Author', attr: 'creator' }
+    { option: 'by title', attr: 'title' },
+// { option: 'by company', attr: 'companies' },
+    { option: 'by concept', attr: 'concepts' },
+    { option: 'by author', attr: 'creator' }
     ];
 
     $scope.selectedSearchParam = $scope.searchParams[0];

@@ -1,21 +1,54 @@
-<div class="header pure-menu pure-menu-open pure-menu-horizontal" ng-controller="HeaderCtrl">
-    <ul>
-        <li ng-repeat="item in menu" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
-            <a href="/{{item.link}}"><i class="oi oi-l" data-glyph="list-rich"></i>{{item.title}}</a>
-        </li>
-        <!-- <li ng-repeat="item in authMenu" ng-show="currentUser" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
-            <a href="/{{item.link}}">{{item.title}}</a>
-        </li> -->
-    </ul>
+<div class="header" ng-controller="HeaderCtrl">
+  <div>
+    <a href="/questions"><i class="oi oi-l" data-glyph="list-rich"></i>All questions</a>
+  </div>
 
-    <ul ng-hide="currentUser" class="pull-right">
-        <li><a href="/login">Login</a></li>
-        <li><a href="/signup">Sign up</a></li>
-    </ul>
+  <div ng-hide="currentUser" class="pull-right">
+    <a href="/login">Login</a>
+    <a href="/signup">Sign up</a>
+  </div>
 
-    <ul ng-show="currentUser" class="pull-right">
-      <li><a href="questions/create"><i class="oi oi-l" data-glyph="plus"></i>Add question</a></li>
-        <li><a href="users/{{currentUser._id}}">{{ currentUser.username }}</a></li>
-        <li><a ng-click="logout()">Logout</a></li>
-    </ul>
+  <div ng-show="currentUser" class="pull-right">
+    <a href="questions/create"><i class="oi oi-l oi-small" data-glyph="plus"></i>Add question</a>
+    <div class="dropdown">
+      <div class="dropdown-label">
+        <i class="oi" data-glyph="menu"></i>
+      </div>
+      <div class="dropdown-menu">
+        <a href="">About</a>
+        <a href="">Blog</a>
+        <a href="">FAQ</a>
+        <a href="">Resources</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <div class="dropdown-label">
+        <span>{{ currentUser.username }}</span>
+        <i class="oi oi-r oi-small" data-glyph="caret-bottom"></i>
+      </div>
+      <div class="dropdown-menu">
+        <a href="users/{{currentUser._id}}">Profile</a>
+        <a ng-click="logout()">Logout</a>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+<script>
+$(document).ready(function() {
+  $(document).click(function(e) {
+    $('.dropdown-menu').hide();
+    $('.dropdown-label').removeClass('on-label');
+    if($(e.target).is('.dropdown-label')) {
+      $(e.target).parent().find('.dropdown-menu').show();
+      $(e.target).addClass('on-label');
+    } else if($(e.target).parent().is('.dropdown-label')) {
+      $(e.target).parent().parent().find('.dropdown-menu').show();
+      $(e.target).parent().addClass('on-label');
+    } else {
+
+    }
+  });
+});
+</script>

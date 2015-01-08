@@ -2,7 +2,6 @@
   background: #fff !important;
   height: 50px;
   font-size: 13px;
-  line-height: 50px;
   font-weight: 600;
 
   // .logo {
@@ -27,10 +26,18 @@
   //   }
   // }
 
-  ul {
+  > div {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
 
-    a {
+    > a {
       color: #999 !important;
+      display: inline-block;
+      height: 50px;
+      line-height: 50px;
+      padding: 0 20px;
 
       &:hover {
         background: transparent !important;
@@ -42,14 +49,62 @@
         outline: none;
       }
     }
-  }
 
-  .pull-right {
-    height: 50px;
-    line-height: 50px;
+    .dropdown {
+      display: inline-block;
+      height: 50px;
+      padding: 0 20px;
+      position: relative;
+      vertical-align: top;
 
-    i {
-      font-size: 8px;
+      .dropdown-label {
+        color: #999;
+        cursor: pointer;
+        display: inline-block;
+        line-height: 50px;
+        height: 50px;
+
+        i {
+          vertical-align: middle;
+        }
+
+        &:hover {
+          color: #333;
+        }
+      }
+
+      .on-label {
+        color: palette(Blue, $shade: 500);
+
+        &:hover {
+          color: palette(Blue, $shade: 700);
+        }
+      }
+
+      .dropdown-menu {
+        // border: 2px solid #bbb;
+        @include border-radius(4px);
+        @include box-shadow(0, 0, 6px, rgba(0, 0, 0, 0.2));
+        background: #fff;
+        display: none;
+        margin-top: -1px;
+        position: absolute;
+        padding: 0;
+        overflow: hidden;
+        right: 15px;
+
+        a {
+          color: #999;
+          font-size: 13px;
+          font-weight: 500;
+          display: block;
+          padding: 10px;
+
+          &:hover {
+            color: #333;
+          }
+        }
+      }
     }
   }
 }
