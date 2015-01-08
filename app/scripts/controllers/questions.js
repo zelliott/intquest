@@ -344,6 +344,8 @@ angular.module('intquestApp')
       answer.$save(function(response) {
         $scope.findAnswers();
       });
+
+      this.content = "";
     };
 
     $scope.editedAnswers = {};
