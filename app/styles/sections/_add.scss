@@ -9,11 +9,12 @@
 
       label {
         color: #999;
-        font-size: 14px;
-        margin-bottom: 5px;
+        font-size: 13px;
+        font-weight: 600;
+        padding-bottom: 5px;
 
         span {
-          color: #ccc;
+          color: #bbb;
           font-size: 12px;
         }
 
@@ -31,10 +32,6 @@
       input,
       textarea,
       select {
-        background: #ddd;
-        border: none !important;
-        border-bottom: 1px solid #ccc !important;
-        @include box-shadow(0, 0, 0, 0);
         padding: 10px !important;
         width: 100%;
       }

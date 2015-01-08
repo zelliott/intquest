@@ -5,3 +5,21 @@ button {
     outline: none;
   }
 }
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+textarea {
+  background: transparent;
+  border: 2px solid rgba(0, 0, 0, 0.13);
+
+  &:hover {
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+
+  &:focus {
+    border-color: palette(Blue, $shade: 500) !important;
+    color: #333;
+  }
+}

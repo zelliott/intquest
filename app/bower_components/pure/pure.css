@@ -954,8 +954,6 @@ a.pure-button-selected {
 .pure-form textarea {
     padding: 0.5em 0.6em;
     display: inline-block;
-    border: 1px solid #ccc;
-    box-shadow: inset 0 1px 3px #ddd;
     border-radius: 4px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -969,8 +967,6 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 .pure-form input:not([type]) {
     padding: 0.5em 0.6em;
     display: inline-block;
-    border: 1px solid #ccc;
-    box-shadow: inset 0 1px 3px #ddd;
     border-radius: 4px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -1002,8 +998,6 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 .pure-form select:focus,
 .pure-form textarea:focus {
     outline: 0;
-    outline: thin dotted \9; /* IE6-9 */
-    border-color: #129FEA;
 }
 
 /*
@@ -1012,15 +1006,11 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 */
 .pure-form input:not([type]):focus {
     outline: 0;
-    outline: thin dotted \9; /* IE6-9 */
-    border-color: #129FEA;
 }
 
 .pure-form input[type="file"]:focus,
 .pure-form input[type="radio"]:focus,
 .pure-form input[type="checkbox"]:focus {
-    outline: thin dotted #333;
-    outline: 1px auto #129FEA;
 }
 .pure-form .pure-checkbox,
 .pure-form .pure-radio {

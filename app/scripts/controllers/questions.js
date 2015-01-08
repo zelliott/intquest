@@ -357,7 +357,7 @@ angular.module('intquestApp')
       Answers.update($scope.answerEdited);
     };
 
-    $scope.showAnswers = true;
+    $scope.showAnswers = false;
 
     $scope.toggleAnswers = function() {
       $scope.showAnswers = !$scope.showAnswers;

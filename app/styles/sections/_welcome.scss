@@ -1,0 +1,23 @@
+.welcome {
+  border-top: 2px solid palette(Amber, $shade: 500);
+  background: palette(Blue, $shade: 500);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 20px;
+
+  > div {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  > i {
+    color: palette(Blue, $shade: 100);
+    cursor: pointer;
+    float: right;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
