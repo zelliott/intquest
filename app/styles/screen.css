@@ -1296,7 +1296,8 @@ body {
         line-height: 50px;
         height: 50px; }
         .header > div .dropdown .dropdown-label i {
-          vertical-align: middle; }
+          vertical-align: middle;
+          height: 50px; }
         .header > div .dropdown .dropdown-label:hover {
           color: #333; }
       .header > div .dropdown .on-label {
@@ -1743,6 +1744,8 @@ body {
       margin-bottom: 20px;
       padding: 10px !important;
       width: 100%; }
+  .open-question #disqus_thread {
+    padding: 20px; }
 
 body ::-webkit-scrollbar {
   width: 14px;
@@ -1853,6 +1856,42 @@ body ::-webkit-scrollbar-corner {
     float: right; }
     .welcome > i:hover {
       color: #fff; }
+
+.page-container .page-header {
+  padding: 20px 0;
+  text-align: center; }
+  .page-container .page-header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 800px; }
+.page-container .blue-header {
+  background: #2196F3;
+  color: #E3F2FD; }
+.page-container .green-header {
+  background: #009688;
+  color: #E0F2F1; }
+.page-container .page-body {
+  padding: 0 20px;
+  margin: 0 auto 20px auto;
+  width: 800px; }
+  .page-container .page-body .page-title {
+    color: #333;
+    font-size: 17px;
+    font-weight: 500;
+    margin: 40px 0 20px 0; }
+  .page-container .page-body .page-desc {
+    color: #777;
+    font-size: 17px;
+    line-height: 30px;
+    width: 100%; }
+  .page-container .page-body a {
+    color: #2196F3; }
+    .page-container .page-body a:hover {
+      color: #1976D2; }
+.page-container .margin-top {
+  margin-top: 40px; }
 
 input:focus,
 textarea:focus,

@@ -1,0 +1,57 @@
+.page-container {
+
+  .page-header {
+    padding: 20px 0;
+    text-align: center;
+
+    h1 {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 800px;
+    }
+  }
+
+  .blue-header {
+    background: palette(Blue, $shade: 500);
+    color: palette(Blue, $shade: 50);
+  }
+
+  .green-header {
+    background: palette(Teal, $shade: 500);
+    color: palette(Teal, $shade: 50);
+  }
+
+  .page-body {
+    padding: 0 20px;
+    margin: 0 auto 20px auto;
+    width: 800px;
+
+    .page-title {
+      color: #333;
+      font-size: 17px;
+      font-weight: 500;
+      margin: 40px 0 20px 0;
+    }
+
+    .page-desc {
+      color: #777;
+      font-size: 17px;
+      line-height: 30px;
+      width: 100%;
+    }
+
+    a {
+      color: palette(Blue, $shade: 500);
+
+      &:hover {
+        color: palette(Blue, $shade: 700);
+      }
+    }
+  }
+
+  .margin-top {
+    margin-top: 40px;
+  }
+}

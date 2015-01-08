@@ -43,6 +43,14 @@ angular.module('intquestApp', [
         templateUrl: 'partials/signup.html',
         controller: 'SignupCtrl'
       })
+      .when('/faq', {
+        templateUrl: 'partials/faq.html',
+        controller: 'QuestionsCtrl'
+      })
+      .when('/resources', {
+        templateUrl: 'partials/resources.html',
+        controller: 'QuestionsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
