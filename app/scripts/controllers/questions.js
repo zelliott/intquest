@@ -275,6 +275,18 @@ angular.module('intquestApp')
       return filtered;
     };
 
+    $scope.countQuestions = function(concept) {
+      var count = 0;
+      for(var i=0; i<$scope.questions.length; i++) {
+        for(var j=0; j<$scope.questions[i].concepts.length; j++) {
+          if($scope.questions[i].concepts[j] == concept) {
+            count++;
+          }
+        }
+      }
+      return count;
+    }
+
     // Filtering by company
 
     $scope.companiesList = {
@@ -308,7 +320,7 @@ angular.module('intquestApp')
 
     // Filtered by marked
     $scope.filterByMarked = function(question) {
-      console.log($scope.markedFilter);
+
       if($scope.markedFilter == true) {
         return ($scope.currentUser.marked.indexOf(question._id) == -1);
       } else {
