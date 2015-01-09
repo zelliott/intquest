@@ -1286,7 +1286,6 @@ body {
     .header > div .dropdown {
       display: inline-block;
       height: 50px;
-      padding: 0 20px;
       position: relative;
       vertical-align: top; }
       .header > div .dropdown .dropdown-label {
@@ -1294,7 +1293,8 @@ body {
         cursor: pointer;
         display: inline-block;
         line-height: 50px;
-        height: 50px; }
+        height: 50px;
+        padding: 0 20px; }
         .header > div .dropdown .dropdown-label i {
           vertical-align: middle;
           height: 50px; }
@@ -1318,7 +1318,8 @@ body {
         position: absolute;
         padding: 0;
         overflow: hidden;
-        right: 15px; }
+        right: 15px;
+        z-index: 1000; }
         .header > div .dropdown .dropdown-menu a {
           color: #999;
           font-size: 13px;
@@ -1367,12 +1368,13 @@ body {
       font-size: 10px;
       margin-top: 3px; }
   .sidebar .checkbox-list {
-    font-size: 13px;
+    font-size: 12px;
+    font-weight: 600;
     padding: 0 20px; }
     .sidebar .checkbox-list .checkbox {
       display: block; }
     .sidebar .checkbox-list b {
-      font-weight: 500;
+      font-weight: 600;
       float: right; }
 
 .fixed {
@@ -1424,10 +1426,9 @@ body {
           border-color: #2196F3; }
     .question-section .question-list .question {
       border-left: 5px solid transparent;
-      border-bottom: 1px solid #ddd;
       cursor: pointer;
       display: block;
-      padding: 15px 20px;
+      padding: 17px 20px;
       width: calc(100% - 45px); }
       .question-section .question-list .question:hover {
         background: #e5e5e5; }
@@ -1448,12 +1449,12 @@ body {
         padding: 10px 0;
         width: 30px;
         text-align: center;
-        margin-right: 20px; }
+        margin-left: 20px; }
       .question-section .question-list .question .title {
         line-height: 100%;
         margin-bottom: 5px; }
         .question-section .question-list .question .title a {
-          color: #555;
+          color: #666;
           font-size: 14px;
           font-weight: 500; }
       .question-section .question-list .question .tags span {
@@ -1484,11 +1485,6 @@ body {
     .question-section .question-list .open-list-question {
       background: #e5e5e5;
       border-left-color: #2196F3; }
-    .question-section .question-list .open-list-question .answers {
-      background: #42A5F5;
-      color: #fff; }
-    .question-section .question-list .open-list-question .title a {
-      font-weight: 600; }
     .question-section .question-list .no-questions {
       color: #999;
       font-size: 16px;
@@ -1767,23 +1763,23 @@ body ::-webkit-scrollbar-corner {
   background-color: transparent; }
 
 .user-profile .user-header {
-  background: #ddd;
+  background: #42A5F5;
   padding: 20px 10%; }
   .user-profile .user-header h1 {
-    color: #555;
+    color: #fff;
     font-size: 20px;
-    font-weight: 500; }
+    font-weight: 600; }
   .user-profile .user-header .user-sections {
     margin-top: 40px; }
     .user-profile .user-header .user-sections span {
-      color: #999;
+      color: #90CAF9;
       cursor: pointer;
       font-size: 16px;
       margin-right: 20px; }
       .user-profile .user-header .user-sections span:hover {
-        color: #555; }
+        color: #E3F2FD; }
     .user-profile .user-header .user-sections .current-section {
-      color: #555; }
+      color: #fff; }
 .user-profile .user-lists {
   margin: 20px 10%; }
   .user-profile .user-lists .user-questions {
@@ -1837,8 +1833,8 @@ body ::-webkit-scrollbar-corner {
         padding: 0 5px; }
       .user-profile .user-lists .user-questions > div a:hover,
       .user-profile .user-lists .user-answers > div a:hover {
-        background: #e5e5e5;
-        border-color: #2196F3; }
+        background: #e6e6e6;
+        border-color: #42A5F5; }
 
 .welcome {
   border-top: 2px solid #FFC107;
@@ -1860,17 +1856,21 @@ body ::-webkit-scrollbar-corner {
 .page-container .page-header {
   padding: 20px 0;
   text-align: center; }
+  .page-container .page-header i {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 20px; }
   .page-container .page-header h1 {
     font-size: 22px;
     font-weight: 600;
     margin: 0 auto;
     padding: 0 20px;
     width: 800px; }
-.page-container .blue-header {
-  background: #2196F3;
-  color: #E3F2FD; }
+.page-container .cyan-header {
+  background: #26C6DA;
+  color: #E0F7FA; }
 .page-container .green-header {
-  background: #009688;
+  background: #26A69A;
   color: #E0F2F1; }
 .page-container .page-body {
   padding: 0 20px;
@@ -1941,7 +1941,7 @@ select {
   font-family: 'Icons';
   float: left;
   font-size: 12px;
-  margin-right: 22px; }
+  margin-right: 21px; }
 
 [type=checkbox]:checked + label:before {
   content: "\e033";
@@ -1949,7 +1949,8 @@ select {
   margin-right: 10px; }
 
 .sidebar [type=checkbox] + label:before {
-  margin-top: 2px; }
+  font-size: 10px;
+  margin-top: 3px; }
 .sidebar [type=checkbox] + label {
   padding: 6px 0; }
   .sidebar [type=checkbox] + label:hover {
@@ -1958,6 +1959,11 @@ select {
   color: #999; }
   .sidebar [type=checkbox]:checked + label:hover {
     color: #ccc; }
+
+.sidebar:hover [type=checkbox]:checked + label {
+  color: #ccc; }
+  .sidebar:hover [type=checkbox]:checked + label:hover {
+    color: #eee; }
 
 .list-bar [type=checkbox] + label:hover {
   color: #333; }

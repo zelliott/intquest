@@ -1,31 +1,31 @@
 .user-profile {
 
   .user-header {
-    background: #ddd;
+    background: palette(Blue, $shade: 400);
     padding: 20px 10%;
 
     h1 {
-      color: #555;
+      color: #fff;
       font-size: 20px;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .user-sections {
       margin-top: 40px;
 
       span {
-        color: #999;
+        color: palette(Blue, $shade: 200);
         cursor: pointer;
         font-size: 16px;
         margin-right: 20px;
 
         &:hover {
-          color: #555;
+          color: palette(Blue, $shade: 50);
         }
       }
 
       .current-section {
-        color: #555;
+        color: #fff;
       }
     }
   }
@@ -98,8 +98,8 @@
           }
 
           &:hover {
-            background: #e5e5e5;
-            border-color: palette(Blue, $shade: 500);
+            background: #e6e6e6;
+            border-color: palette(Blue, $shade: 400);
           }
         }
       }

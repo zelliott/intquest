@@ -39,7 +39,7 @@
          ng-class="{'open-list-question': question._id == openedQuestion && questionOpen}"
          ng-click="toggleOpenQuestion(question)">
         <div ng-init="countAnswers(question._id)"
-             class="answers">
+             class="answers pull-right">
           {{counts[question._id]}}
         </div>
         <div>

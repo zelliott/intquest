@@ -23,7 +23,8 @@
   }
 
   .checkbox-list {
-    font-size: 13px;
+    font-size: 12px;
+    font-weight: 600;
     padding: 0 20px;
 
     .checkbox {
@@ -31,7 +32,7 @@
     }
 
     b {
-      font-weight: 500;
+      font-weight: 600;
       float: right;
     }
   }

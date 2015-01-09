@@ -60,10 +60,10 @@
 
     .question {
       border-left: 5px solid transparent;
-      border-bottom: 1px solid #ddd;
+      // border-bottom: 1px solid #ddd;
       cursor: pointer;
       display: block;
-      padding: 15px 20px;
+      padding: 17px 20px;
       width: calc(100% - 45px);
 
       &:hover {
@@ -86,7 +86,7 @@
         padding: 10px 0;
         width: 30px;
         text-align: center;
-        margin-right: 20px;
+        margin-left: 20px;
       }
 
       .title {
@@ -94,7 +94,7 @@
         margin-bottom: 5px;
 
         a {
-          color: #555;
+          color: #666;
           font-size: 14px;
           font-weight: 500;
         }
@@ -141,18 +141,6 @@
     .open-list-question {
       background: #e5e5e5;
       border-left-color: palette(Blue, $shade: 500);
-    }
-
-    .open-list-question {
-
-      .answers {
-        background: palette(Blue, $shade: 400);
-        color: #fff;
-      }
-
-      .title a {
-        font-weight: 600;
-      }
     }
 
     .no-questions {

@@ -12,7 +12,7 @@
   font-family: 'Icons';
   float: left;
   font-size: 12px;
-  margin-right: 22px;
+  margin-right: 21px;
 }
 
 [type=checkbox]:checked + label:before {
@@ -25,7 +25,8 @@
 .sidebar {
 
   [type=checkbox] + label:before {
-    margin-top: 2px;
+    font-size: 10px;
+    margin-top: 3px;
   }
 
   [type=checkbox] + label {
@@ -42,6 +43,16 @@
       &:hover {
         color: #ccc;
       }
+  }
+}
+
+.sidebar:hover {
+  [type=checkbox]:checked + label {
+    color: #ccc;
+
+    &:hover {
+      color: #eee;
+    }
   }
 }
 

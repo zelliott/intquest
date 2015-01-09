@@ -4,6 +4,12 @@
     padding: 20px 0;
     text-align: center;
 
+    i {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
     h1 {
       font-size: 22px;
       font-weight: 600;
@@ -13,13 +19,13 @@
     }
   }
 
-  .blue-header {
-    background: palette(Blue, $shade: 500);
-    color: palette(Blue, $shade: 50);
+  .cyan-header {
+    background: palette(Cyan, $shade: 400);
+    color: palette(Cyan, $shade: 50);
   }
 
   .green-header {
-    background: palette(Teal, $shade: 500);
+    background: palette(Teal, $shade: 400);
     color: palette(Teal, $shade: 50);
   }
 
