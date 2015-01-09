@@ -2,7 +2,7 @@
 <!--<div ng-include src="'partials/welcome.html'"></div>-->
 <div class="question-section" ng-init="find()">
   <div ng-include src="'partials/sidebar.html'"></div>
-  <div class="question-list">
+  <div class="question-list" infinite-scroll="loadMore()" infinite-scroll-distance="2">
 
     <div ng-include src="'partials/header.html'"></div>
 
@@ -17,7 +17,13 @@
              ng-model="$parent.markedFilter"
              id="marked"/>
       <label for="marked" ng-show="currentUser">
-        Hide reviewed
+        Unreviewed
+      </label>
+      <input type="checkbox"
+             ng-model="$parent.answeredFilter"
+             id="answered"/>
+      <label for="answered" ng-show="currentUser">
+        Answered
       </label>
       <select class="pull-right"
               ng-model="selectedSearchParam"
@@ -27,7 +33,7 @@
              type="text"
              placeholder="Search"/>
     </div>
-    <div class="question"
+    <!-- <div class="question"
          dir-paginate="question in filteredQuestions =
                   (questions |
                   orderBy:selectedOrder.attr:[selectedOrder.rev] |
@@ -36,6 +42,17 @@
                   filter:filterByConcepts |
                   filter:filterByMarked) |
                   itemsPerPage: 6"
+         ng-class="{'open-list-question': question._id == openedQuestion && questionOpen}"
+         ng-click="toggleOpenQuestion(question)"> -->
+    <div class="question"
+         ng-repeat="question in filteredQuestions =
+         (questions |
+         orderBy:selectedOrder.attr:[selectedOrder.rev] |
+         filter:isWithinTimeframe |
+         filter:search |
+         filter:filterByConcepts |
+         filter:filterByMarked |
+         filter:filterByAnswered)"
          ng-class="{'open-list-question': question._id == openedQuestion && questionOpen}"
          ng-click="toggleOpenQuestion(question)">
         <div ng-init="countAnswers(question._id)"
@@ -68,14 +85,34 @@
       No questions
     </div>
 
-    <dir-pagination-controls
+    <!-- <dir-pagination-controls
       boundary-links="true"
       on-page-change="pageChangeHandler(newPageNumber)"
       template-url="bower_components/angular-utils-pagination/dirPagination.tpl.html">
-    </dir-pagination-controls>
+    </dir-pagination-controls> -->
   </div>
 </div>
 
 <!-- Current question -->
 <div ng-include src="'partials/questions/view.html'"></div>
 <!--<div ng-include src="'partials/footer.html'"></div>-->
+
+<script>
+$(window).scroll(function (event) {
+  var scroll = $(window).scrollTop();
+
+  if(scroll >= 50) {
+    $('.list-bar').addClass('fixed');
+    $('.question-list').addClass('padding-top');
+  }
+
+  if(scroll < 50) {
+    $('.list-bar').removeClass('fixed');
+    $('.question-list').removeClass('padding-top');
+  }
+});
+
+$('.search').keydown(function() {
+  window.scrollTo(0, 0);
+});
+</script>

@@ -2,12 +2,22 @@
   background: transparent;
   width: 100%;
 
+  .question-list.padding-top {
+    padding-top: 55px;
+  }
+
   .question-list {
     background: #eee;
     min-height: 100vh;
-    width: calc(100%-200px);
+    width: calc(100% - 200px);
     margin-left: 200px;
     position: relative;
+
+    .list-bar.fixed {
+      position: fixed;
+      width: calc(100% - 240px);
+      z-index: 100;
+    }
 
     .list-bar {
       background: #fff;

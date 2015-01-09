@@ -86,6 +86,8 @@ angular.module('intquestApp')
       });
     };
 
+    $scope.questions = [];
+
     // Find all of the questions
     $scope.find = function() {
       Questions.query(function(questions) {
@@ -344,6 +346,16 @@ angular.module('intquestApp')
     $scope.showMarked = function(question) {
       return ($scope.currentUser.marked.indexOf(question._id) != -1);
 
+    };
+
+    // Filtered by answered
+    $scope.filterByAnswered = function(question) {
+
+      if($scope.answeredFilter == true) {
+        return ($scope.counts[question._id] != 0);
+      } else {
+        return true;
+      }
     };
 
     // Answers Ctrl
