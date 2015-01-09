@@ -38,14 +38,9 @@
                   itemsPerPage: 6"
          ng-class="{'open-list-question': question._id == openedQuestion && questionOpen}"
          ng-click="toggleOpenQuestion(question)">
-        <div>
-          <!-- <div ng-init="voted=false"
-               class="score"
-               ng-class="voted ? 'voted' : ''"
-               ng-click="upvote(question)">
-            <i class="fa fa-caret-up"></i>
-            {{question.score}}
-          </div> -->
+        <div ng-init="countAnswers(question._id)"
+             class="answers">
+          {{counts[question._id]}}
         </div>
         <div>
           <div class="title"><a>{{question.title}}</a></div>

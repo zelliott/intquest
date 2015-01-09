@@ -1389,6 +1389,7 @@ body {
     margin-left: 200px;
     position: relative; }
     .question-section .question-list .list-bar {
+      background: #fff;
       border-bottom: 1px solid #ddd;
       color: #999;
       font-size: 13px;
@@ -1433,27 +1434,21 @@ body {
       .question-section .question-list .question > div {
         display: inline-block;
         vertical-align: top; }
-      .question-section .question-list .question .score {
+      .question-section .question-list .question .answers {
         background: #ddd;
-        border-bottom: 2px solid #ccc;
-        border-radius: 2px;
-        -moz-border-radius: 2px;
-        -webkit-border-radius: 2px;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
         background-clip: padding-box;
         cursor: pointer;
-        color: #555;
+        color: #999;
+        display: inline-block;
         font-weight: 600;
-        font-size: 12px;
-        padding: 5px;
-        margin: 10px 30px 10px 0;
+        font-size: 13px;
+        padding: 10px 0;
+        width: 30px;
         text-align: center;
-        width: 20px; }
-        .question-section .question-list .question .score i {
-          font-size: 20px;
-          display: block;
-          height: 20px; }
-      .question-section .question-list .question .voted {
-        color: #2196F3 !important; }
+        margin-right: 20px; }
       .question-section .question-list .question .title {
         line-height: 100%;
         margin-bottom: 5px; }
@@ -1489,6 +1484,11 @@ body {
     .question-section .question-list .open-list-question {
       background: #e5e5e5;
       border-left-color: #2196F3; }
+    .question-section .question-list .open-list-question .answers {
+      background: #42A5F5;
+      color: #fff; }
+    .question-section .question-list .open-list-question .title a {
+      font-weight: 600; }
     .question-section .question-list .no-questions {
       color: #999;
       font-size: 16px;

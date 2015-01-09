@@ -149,6 +149,17 @@ angular.module('intquestApp')
       });
     };
 
+    $scope.counts = {};
+    $scope.countAnswers = function(questionid) {
+      AnswersQueries.getAnswers(questionid, function(answers) {
+        //if(answers.length == 0) {
+          //$scope.counts[questionid] = "";
+        //} else {
+          $scope.counts[questionid] = answers.length;
+        //}
+      });
+    };
+
     // Mark question as understood
     $scope.understood = function(questionid) {
       var user = $scope.currentUser;
