@@ -1404,6 +1404,7 @@ body {
     margin-left: 200px;
     position: relative; }
     .question-section .question-list .list-bar.fixed {
+      background: rgba(255, 255, 255, 0.9);
       position: fixed;
       width: calc(100% - 240px);
       z-index: 100; }
