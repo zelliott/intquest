@@ -1,5 +1,5 @@
 .sidebar {
-  background: #222;
+  background: transparent;
   color: #666;
   height: 100vh;
   float: left;
@@ -7,12 +7,15 @@
   width: 200px;
 
   .sidebar-header {
-    color: #999;
+    background: #222;
+    border-left: 2px solid transparent;
+    color: #666;
+    cursor: pointer;
     font-size: 13px;
-    font-weight: 600;
-    padding: 20px;
+    padding: 13px 20px 13px 18px;
 
     &:hover {
+      background: #2C2C2C;
       color: #999;
     }
 
@@ -22,10 +25,27 @@
     }
   }
 
-  .checkbox-list {
-    font-size: 12px;
+  .header-active {
+    background: #444;
+    color: #eee;
     font-weight: 600;
-    padding: 0 20px;
+
+    &:hover {
+      background: #444;
+      color: #eee;
+    }
+  }
+
+  // .header-active {
+  //   background: transparent;
+  //   border-bottom-color: transparent;
+  // }
+
+  .checkbox-list {
+    background: #333;
+    font-size: 13px;
+    height: calc(100% - 150px);
+    padding: 10px 20px;
 
     .checkbox {
       display: block;
@@ -36,23 +56,6 @@
       float: right;
     }
   }
-
-  // .sidebar-footer {
-  //   bottom: 0;
-  //   border-top: 1px solid #444;
-  //   font-size: 12px;
-  //   font-weight: 600;
-  //   padding: 20px;
-  //   position: absolute;
-  //   width: 100%;
-  //
-  //   a {
-  //
-  //     &:hover {
-  //       color: #999;
-  //     }
-  //   }
-  // }
 }
 
 .fixed {

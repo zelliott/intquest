@@ -1351,26 +1351,37 @@ body {
       width: 200px; }
 
 .sidebar {
-  background: #222;
+  background: transparent;
   color: #666;
   height: 100vh;
   float: left;
   position: fixed;
   width: 200px; }
   .sidebar .sidebar-header {
-    color: #999;
+    background: #222;
+    border-left: 2px solid transparent;
+    color: #666;
+    cursor: pointer;
     font-size: 13px;
-    font-weight: 600;
-    padding: 20px; }
+    padding: 13px 20px 13px 18px; }
     .sidebar .sidebar-header:hover {
+      background: #2C2C2C;
       color: #999; }
     .sidebar .sidebar-header i {
       font-size: 10px;
       margin-top: 3px; }
+  .sidebar .header-active {
+    background: #444;
+    color: #eee;
+    font-weight: 600; }
+    .sidebar .header-active:hover {
+      background: #444;
+      color: #eee; }
   .sidebar .checkbox-list {
-    font-size: 12px;
-    font-weight: 600;
-    padding: 0 20px; }
+    background: #333;
+    font-size: 13px;
+    height: calc(100% - 150px);
+    padding: 10px 20px; }
     .sidebar .checkbox-list .checkbox {
       display: block; }
     .sidebar .checkbox-list b {
@@ -1947,7 +1958,7 @@ select {
   font-family: 'Icons';
   float: left;
   font-size: 12px;
-  margin-right: 21px; }
+  margin-right: 19px; }
 
 [type=checkbox]:checked + label:before {
   content: "\e033";
@@ -1955,8 +1966,8 @@ select {
   margin-right: 10px; }
 
 .sidebar [type=checkbox] + label:before {
-  font-size: 10px;
-  margin-top: 3px; }
+  font-size: 9px;
+  margin-top: 4px; }
 .sidebar [type=checkbox] + label {
   padding: 6px 0; }
   .sidebar [type=checkbox] + label:hover {
@@ -1965,11 +1976,6 @@ select {
   color: #999; }
   .sidebar [type=checkbox]:checked + label:hover {
     color: #ccc; }
-
-.sidebar:hover [type=checkbox]:checked + label {
-  color: #ccc; }
-  .sidebar:hover [type=checkbox]:checked + label:hover {
-    color: #eee; }
 
 .list-bar [type=checkbox] + label:hover {
   color: #333; }
