@@ -10,7 +10,8 @@ angular.module('intquestApp', [
   'btford.markdown',
   'infinite-scroll',
   // 'angularUtils.directives.dirPagination',
-  'localytics.directives'
+  'localytics.directives',
+  'ngCookies'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider

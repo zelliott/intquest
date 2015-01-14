@@ -3,7 +3,7 @@
 angular.module('intquestApp')
   .controller('QuestionsCtrl',
   function ($scope, Questions, Answers, AnswersQueries, ConceptTags,
-            $location, $routeParams, $rootScope, $http, User) {
+            $location, $routeParams, $rootScope, $http, User, $cookieStore) {
 
     // Capitalize helper function
     String.prototype.capitalize = function() {
@@ -252,24 +252,37 @@ angular.module('intquestApp')
 
     // Filtering by concept
 
-    $scope.conceptsList = {};
-
     $scope.initConcepts = function() {
+
       $scope.conceptNames = [];
 
       ConceptTags.query(function(concepttags) {
-        $scope.concepttags = concepttags;
-        for(var i=0; concepttags.length; i++) {
-          if(typeof concepttags[i] !== 'undefined') {
-            $scope.conceptsList[concepttags[i].name] = true;
 
+        // Build conceptsList cookie if it doesn't exist
+        if($cookieStore.get('conceptsList') === undefined) {
+          var tempList = {};
+          for(var j=0; j<concepttags.length; j++) {
+            tempList[concepttags[j].name] = true;
+          }
+          $cookieStore.put('conceptsList', tempList);
+        }
+
+        // Set conceptsList to the saved cookie
+        $scope.conceptsList = $cookieStore.get('conceptsList');
+
+        for(var i=0; i<concepttags.length; i++) {
+          if(typeof concepttags[i] !== undefined) {
             $scope.conceptNames.unshift(concepttags[i].name);
-          } else {
-            break;
           }
         }
       });
     };
+
+    $scope.$watch('conceptsList', function() {
+      if($scope.conceptsList !== undefined) {
+        $cookieStore.put('conceptsList', $scope.conceptsList);
+      }
+    }, true);
 
     $scope.conceptsAll = true;
     $scope.selectAllConcepts = function() {
@@ -282,9 +295,11 @@ angular.module('intquestApp')
     $scope.filterByConcepts = function(question) {
       var filtered = false;
       for(var i=0; i<question.concepts.length; i++) {
-        if($scope.conceptsList[question.concepts[i]] !== undefined &&
-           $scope.conceptsList[question.concepts[i]]) {
-          filtered = true;
+        if($scope.conceptsList !== undefined) {
+          if($scope.conceptsList[question.concepts[i]] !== undefined &&
+             $scope.conceptsList[question.concepts[i]]) {
+            filtered = true;
+          }
         }
       }
       return filtered;
