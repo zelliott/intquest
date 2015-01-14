@@ -11,6 +11,15 @@ angular.module('intquestApp')
     });
   });
 
+  angular.module('intquestApp')
+  .factory('UserAuth', function ($resource) {
+    return $resource('/auth/users/:userId/', {}, {
+      update: {
+        method:'PUT'
+      }
+    });
+  });
+
 angular.module('intquestApp')
 .factory('UserQueries', function ($resource) {
   return {

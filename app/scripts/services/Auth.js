@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('intquestApp')
-  .factory('Auth', function Auth($location, $rootScope, Session, User, $cookieStore) {
+  .factory('Auth', function Auth($location, $rootScope, Session, User, UserAuth, $cookieStore) {
     $rootScope.currentUser = $cookieStore.get('user') || null;
     $cookieStore.remove('user');
 
@@ -35,7 +35,7 @@ angular.module('intquestApp')
 
       createUser: function(userinfo, callback) {
         var cb = callback || angular.noop;
-        User.save(userinfo,
+        UserAuth.save(userinfo,
           function(user) {
             $rootScope.currentUser = user;
             return cb();
@@ -53,7 +53,7 @@ angular.module('intquestApp')
 
       changePassword: function(email, oldPassword, newPassword, callback) {
         var cb = callback || angular.noop;
-        User.update({
+        UserAuth.update({
           email: email,
           oldPassword: oldPassword,
           newPassword: newPassword
@@ -67,7 +67,7 @@ angular.module('intquestApp')
 
       removeUser: function(email, password, callback) {
         var cb = callback || angular.noop;
-        User.delete({
+        UserAuth.delete({
           email: email,
           password: password
         }, function(user) {
