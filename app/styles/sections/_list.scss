@@ -81,6 +81,11 @@
         background: #e5e5e5;
       }
 
+      &:hover .tags span {
+        background: #ccc;
+        color: #777;
+      }
+
       > div {
         display: inline-block;
         vertical-align: top;
@@ -102,19 +107,23 @@
 
       .title {
         line-height: 100%;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
 
         a {
           color: #666;
           font-size: 14px;
-          font-weight: 500;
+          font-weight: 600;
         }
       }
 
       .tags span {
+        background: #ddd;
+        @include border-radius(20px);
         color: #999;
         font-size: 12px;
+        font-weight: 600;
         margin: 0 10px 0 0;
+        padding: 3px 7px;
       }
 
       .sepline {
@@ -126,7 +135,7 @@
         color: palette(Green, $shade: 500);
         font-size: 12px;
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         text-align: right;
       }
 
@@ -134,7 +143,7 @@
         color: #999;
         font-size: 12px;
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         text-align: right;
       }
 
